@@ -43,6 +43,7 @@ Route::group(
             Route::resource('users', UserController::class)->except(['destroy']);
             Route::resource('roles', RoleController::class)->except(['destroy']);
             Route::resource('deliveries', DeliveryController::class)->except(['destroy']);
+            Route::resource('vendors', VendorController::class)->except(['destroy']);
 
 
         });
