@@ -1,5 +1,5 @@
 @php
-    $models = config('permissions.vendors');
+    $models = config('permissions.pharmacy');
     $maps = ['create', 'read', 'update', 'delete'];
 @endphp
 <div class="row">
@@ -60,34 +60,34 @@
                 if(arr == arr2 )
                 {
                     $('#check_all').prop('checked',true);
-    
+
                 }else {
                     $('#check_all').prop('checked',false);
-    
+
                 }
-        
+
         }
         $('.check_all').on('change', function() {
 
                 if ($(this).is(":checked")) {
-    
+
                     var id = $(this).attr('id');
                     $.each($(`.${id}`).not($(this)), function() {
                         $(this).prop('checked', true);
                     })
-                    
+
                 } else {
                     var id = $(this).attr('id');
                     $.each($(`.${id}`).not($(this)), function() {
                         $(this).prop('checked', false);
                     })
                     $('#check_all').prop('checked',false);
-    
+
                 }
                 checksAll();
 
-            
-            
+
+
             // checksAll()
             //   .each() prop('checked', this.checked);
         });
@@ -107,7 +107,7 @@
         })
         $("input[name='permissions[]']").on('change',function(){
 
-          
+
             var id = $(this).attr('class');
             $.each($(`.${id}`).not($('.check_all')),function(){
                 if($(this).is(':checked')){
@@ -123,27 +123,27 @@
 
 
                 }
-                
+
             })
             checksAll();
             count = 0;
 
-        
+
         })
-    
+
         $('#check_all').on('change',function(){
             if ($(this).is(":checked")) {
-                
+
                 $('input[type="checkbox"]').prop('checked',true);
             }else {
-                
+
                 $('input[type="checkbox"]').prop('checked',false);
-                
+
             }
 
-              
+
         })
         checksAll();
-        
+
     </script>
 @endpush

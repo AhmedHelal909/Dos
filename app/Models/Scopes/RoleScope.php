@@ -13,7 +13,7 @@ class RoleScope implements Scope
 {
     public function apply(Builder $builder, Model $model)
     {
-        //  if(Auth::guard('vendor')->user()  ) {
+        //  if(Auth::guard('pharmacy')->user()  ) {
         //     $builder->where('guard_name','vendor');
         // }
     }

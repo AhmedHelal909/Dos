@@ -93,7 +93,7 @@ class BaseDatatableController extends Controller
 
     protected function append()
     {
-  
+
         return [
 
         ];
@@ -182,6 +182,7 @@ class BaseDatatableController extends Controller
                 $msg = '';
         }
         session()->flash('success', __('site.' . $msg));
-        return redirect()->route('dashboard.' . $this->getClassNameFromModel() . '.show', $id);
+        return redirect()->route('dashboard.' . $this->getClassNameFromModel() . '.index');
+//        return redirect()->route('dashboard.' . $this->getClassNameFromModel() . '.index', $id);
     }
 }

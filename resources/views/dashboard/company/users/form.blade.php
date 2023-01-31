@@ -5,12 +5,10 @@
         'email' => ['type' => 'email', 'cssClass' => 'col-md-6', 'attr' => '', 'data' => ''],
         'phone' => ['type' => 'number', 'cssClass' => 'col-md-6', 'attr' => '', 'data' => ''],
         'age' => ['type' => 'number', 'cssClass' => 'col-md-6', 'attr' => '', 'data' => ''],
-        'salary' => ['type' => 'number', 'cssClass' => 'col-md-6', 'attr' => '', 'data' => ''],
-        'ssn' => ['type' => 'number', 'cssClass' => 'col-md-6', 'attr' => '', 'data' => ''],
         'image' => ['type' => 'image', 'cssClass' => 'col-md-6', 'attr' => '', 'data' => '','path' => 'users'],
         'password' => ['type' => 'password', 'cssClass' => 'col-md-6', 'attr' => '', 'data' => ''],
         'password_confirmation' => ['type' => 'password', 'cssClass' => 'col-md-6', 'attr' => '', 'data' => ''],
-        
+
 
     ];
 @endphp

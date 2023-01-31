@@ -23,19 +23,13 @@ return new class extends Migration
             $table->string('address')->nullable();
 
             $table->integer('age')->nullable();
-            $table->double('salary')->nullable();
-            $table->string('ssn')->nullable();
 
             $table->string('image')->nullable();
 
             $table->tinyInteger('gender')->default(GenderEnum::getMale());
-            $table->tinyInteger('status')->default(StatusEnum::getPending());
-            $table->string('branch_id')->nullable();
-
+//            $table->tinyInteger('status')->default(StatusEnum::getPending());
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
-            $table->bigInteger('supervisor_id')->nullable()->unsigned();
-            $table->foreign('supervisor_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->rememberToken();
             $table->timestamps();
         });

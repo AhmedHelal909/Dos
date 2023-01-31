@@ -53,6 +53,14 @@ return [
     'address' => 'العنوان',
     'action' => 'العمليات',
 
+    'id_number' => 'رقم الهوية',
+    'medical_number' => 'الرقم الطبي',
+    'pending' => 'قيد الانتظار',
+    'accepted' => 'تم القبول',
+    'processing' => 'قيد التجهيز',
+    'completed' => 'تم التسليم',
+    'create pharmacy' => 'إنشاء صيدلية',
+
     // products
     'products' => 'المنتجات',
     'product' => 'منتج',
@@ -78,7 +86,7 @@ return [
     'roles' => 'الصلاحيات',
     'role' => 'صلاحيه',
 
-    'users' => 'الشركات',
+    'users' => 'المسئولين',
     'roles.add' => 'اضافة صلاحيات',
     'role.add' => 'اضافة صلاحية',
     'roles.edit' => 'تعديل صلاحيات',
@@ -86,6 +94,7 @@ return [
     'roles.owners' => 'تعديل صلاحيات',
 
     //front
+    'pharmacies' => 'الصيدليات',
     'Email' => 'البريد الالكترونى',
     'Login' => 'دخول',
     'Register' => 'تسجيل',
@@ -180,13 +189,19 @@ return [
     'not active' => 'غير نشط',
 
     //employers
-    'employers' => 'الشركات',
-    'employer' => 'الشركة',
-    'employer.add' => 'إضافة شركة',
-    'employer.edit' => 'تعديل الشركة',
+    'employers' => 'المسئولين',
+    'employer' => 'المسئول',
+    'you_are_not_allowed_to_register' => 'غير مسموح لك بالتسجيل',
+    'employer.add' => 'إضافة مسئول',
+    'employer.edit' => 'تعديل المسئول',
     'mobile_number1' => 'رقم الهاتف1',
     'mobile_number2' => 'رقم الهاتف2',
-    'company_name' => 'أسم الشركة',
+    'company_name' => 'أسم المسئول',
+    'sec_phone' => 'رقم الهاتف الثانى',
+    'pharmacy.add' => 'إضافة صيدلية',
+    'pharmacy.edit' => 'تعديل صيدلية',
+    'Profile' => 'الملف الشخصى',
+    'pharmacy' => 'صيدلية',
     'established_at' => 'تاريخ التاسيس',
     'website' => 'لينك الموقع الالكترونى',
     'choose_active' => 'أختر الحالة',
@@ -197,7 +212,7 @@ return [
     'choose_establishment_type_id' => 'أختر نوع المؤسسة',
     'choose_business' => 'أختر فئة العمل',
     //jobs
-    'employer_id' => 'الشركة',
+    'employer_id' => 'المسئول',
     'job_field' => 'التخصص',
     'choose_status' => 'أختر الحالة',
     'meeting_date' => 'تاريخ يوم المقابلة',
@@ -266,17 +281,17 @@ return [
     'ads.edit' => 'تعديل الاعلانات',
 
     //users
-    'users.add' => 'اضافة شركات',
-    'user.add' => 'اضافة شركة',
-    'user' => 'شركة',
+    'users.add' => 'اضافة مسئول',
+    'user.add' => 'اضافة مسئول',
+    'user' => 'مسئول',
     'type' => 'النوع',
     'users.edit' => 'تعديل شركات',
-    'user.edit' => 'تعديل شركة',
+    'user.edit' => 'تعديل مسئول',
     'admin' => 'مدير',
     'student' => 'طالب',
     'users.owners' => 'المستخدمين',
     /* start Enum  */
-   
+
     /* end Enum  */
     //global
     'long' => 'دائرة الطول',

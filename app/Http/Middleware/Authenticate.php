@@ -19,9 +19,9 @@ class Authenticate extends Middleware
      */
     protected function authenticate($request, array $guards)
     {
-        
+
         if (empty($guards)) {
-            $guards = ['vendor','web','delivery'];
+            $guards = ['pharmacy', 'web'];
         }
 
         foreach ($guards as $guard) {

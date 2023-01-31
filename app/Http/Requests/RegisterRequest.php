@@ -26,16 +26,12 @@ class RegisterRequest extends FormRequest
     public function rules()
     {
         return [
-            'first_name'=>'required|string|min:3|max:255',
-            'last_name'=>'required|string|min:3|max:255',
+            'name'=>'required|string|min:3|max:255',
             'email'=>'required|unique:customers,email',
             'phone'=>'required|unique:customers,phone',
-            'birth_date'=>'required|date_format:Y-m-d',
             'password'          => 'required|string|min:6',
             'confirmPassword'   => 'required|string|same:password',
-            'type'=>['required',Rule::in(GenderEnum::getKeyList())],
             'address'=>'required',
-            'address_details'=>'required',
         ];
     }
 }

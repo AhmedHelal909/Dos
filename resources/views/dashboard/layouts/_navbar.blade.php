@@ -3,7 +3,7 @@
 
     <div class="topbar-left	d-none d-lg-block">
         <div class="text-center">
-            <a href="index.html" class="logo"><img src="{{asset('assets/images/logo.png')}}" height="22" alt="logo"></a>
+            <a href="{{ route('home') }}" class="logo"><img src="{{asset('assets/images/logo.png')}}" height="22" alt="logo"></a>
         </div>
     </div>
 
@@ -70,7 +70,7 @@
                         </a>
 
                     </div>
-                    
+
 
                     <!-- All-->
                     <a href="javascript:void(0);" class="dropdown-item notify-all">
@@ -80,13 +80,13 @@
                 </div>
             </li>
 
-         
+
             <li class="list-inline-item dropdown notification-list">
                 <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button"
                 aria-haspopup="false" aria-expanded="false">
                     <i class="fas fa-angle-double-down"></i>
                 </a>
-           
+
                 <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg dropdown-menu-animated">
                     <!-- item-->
                     <div class="dropdown-item noti-title">
@@ -102,11 +102,8 @@
                         </a>
                         @endforeach
 
-
-                       
-
                     </div>
-                    
+
 
                     <!-- All-->
                     <a href="javascript:void(0);" class="dropdown-item notify-all">
@@ -115,21 +112,21 @@
 
                 </div>
             </li>
-            
+
                 <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button"
                 aria-haspopup="false" aria-expanded="false">
                     <img src="{{auth()->user()->image_path}}" width="45" height="45" alt="user" class="rounded-circle">
                     <span class="d-none d-md-inline-block ml-1"> <i class="mdi mdi-chevron-down"></i> </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown">
-                    <a class="dropdown-item" href="#"><i class="dripicons-user text-muted"></i> Profile</a>
+                    <a class="dropdown-item" href="{{ Auth::guard() == 'super' ? route('dashboard.users.edit', auth()->user()->id) : route('dashboard.pharmacies.edit', auth()->user()->id) }}"><i class="dripicons-user text-muted"></i> {{ __('Profile') }}</a>
                     <a class="dropdown-item" href="#"><i class="dripicons-wallet text-muted"></i> My Wallet</a>
                     <a class="dropdown-item" href="#"><span class="badge badge-success float-right m-t-5">5</span><i class="dripicons-gear text-muted"></i> Settings</a>
                     <a class="dropdown-item" href="#"><i class="dripicons-lock text-muted"></i> Lock screen</a>
                     <div class="dropdown-divider"></div>
                       @if(auth()->check())
                         <form id="logout-form" action="{{ route('logout','web') }}" method="POST" style="display: none;">
-                      @endif        
+                      @endif
                             @csrf
                         </form>
                     <a class="dropdown-item" href="#" onclick="event.preventDefault();

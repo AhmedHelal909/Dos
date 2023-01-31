@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 use App\CustomClass\response;
 use App\Http\Requests\RegisterRequest;
 use App\Http\Resources\CustomerResourse;
-use App\Models\Models\Customer;
+use App\Models\Customer;
 use App\Models\PasswordReset;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;

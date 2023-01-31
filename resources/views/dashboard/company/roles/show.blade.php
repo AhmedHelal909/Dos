@@ -27,7 +27,7 @@
                                         </a>
                                     </li>
                                 @endhavePermission
-                                @havePermission('read-vendors', get_guard())
+                                @havePermission('read-pharmacies', get_guard())
                                     <li class="nav-item">
                                         <a class="nav-link" data-toggle="tab" href="#profile" role="tab"
                                             onclick="getUsers('profile','web')">
@@ -36,7 +36,7 @@
                                         </a>
                                     </li>
                                 @endhavePermission
-                                {{-- @havePermission('read-vendors','vendor')
+                                {{-- @havePermission('read-pharmacies','vendor')
                                 <li class="nav-item">
                                     <a class="nav-link" data-toggle="tab" href="#profile" role="tab"
                                         onclick="getUsers('profile','vendor')">
@@ -54,7 +54,7 @@
                                         @include('dashboard.company.' . $module_name_plural . '.partials.home')
                                     </div>
                                 @endhavePermission
-                                @havePermission('read-vendors', get_guard())
+                                @havePermission('read-pharmacies', get_guard())
                                     <div class="tab-pane p-3" id="profile" role="tabpanel">
                                         @include('dashboard.company.' . $module_name_plural . '.partials.profile')
                                     </div>

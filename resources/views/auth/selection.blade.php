@@ -7,7 +7,7 @@
         @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
         <a class="dropdown-item" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}" hreflang="{{ $localeCode }}">{{ $properties['native'] }}</a>
         @endforeach
-       
+
     </div>
 </div>
 <div class="wrapper">
@@ -22,13 +22,10 @@
                         <h3 style="font-family: 'Cairo', sans-serif; text-align:center;" class="mb-30">{{__('site.choose_login')}}</h3>
                         <div class="form-inline">
                             <a class="btn btn-default col-lg-3" title="{{__('site.web')}}" href="{{route('login')}}">
-                                <img alt="user-img" width="100px;" src="{{URL::asset('uploads/globals/company.png')}}">
+                                <img alt="user-img" width="100px;" src="{{URL::asset('uploads/globals/super.png')}}">
                             </a>
-                            <a class="btn btn-default col-lg-3" title="{{__('site.vendor')}}" href="{{route('vendor.login-view')}}">
-                                <img alt="user-img" width="100px;" src="{{URL::asset('uploads/globals/vendor.png')}}">
-                            </a>
-                            <a class="btn btn-default col-lg-3" title="{{__('site.delivery')}}" href="{{route('delivery.login-view')}}">
-                                <img alt="user-img" width="100px;" src="{{URL::asset('uploads/globals/delivery.png')}}">
+                            <a class="btn btn-default col-lg-3" title="{{__('site.vendor')}}" href="{{route('pharmacy.login-view')}}">
+                                <img alt="user-img" width="100px;" src="{{URL::asset('uploads/globals/pharmacy.png')}}">
                             </a>
                         </div>
                         <h4 style="text-align:center"><a href="{{route('register')}}">{{__('site.Register')}}</a></h4>

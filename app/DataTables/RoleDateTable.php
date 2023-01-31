@@ -27,8 +27,9 @@ class RoleDateTable extends DataTable
                 $row = $query;
                 $module_name_singular = 'role';
                 $module_name_plural   = 'roles';
-                return view('dashboard.includes.buttons.edit', compact('module_name_singular', 'module_name_plural', 'row'))  . view('dashboard.includes.buttons.show', compact('module_name_singular', 'module_name_plural', 'row'));            })
-;
+                return view('dashboard.includes.buttons.edit', compact('module_name_singular', 'module_name_plural', 'row'));
+//                    . view('dashboard.includes.buttons.show', compact('module_name_singular', 'module_name_plural', 'row'));
+            });
     }
 
     /**
@@ -52,7 +53,7 @@ class RoleDateTable extends DataTable
         return $this->builder()
         ->setTableId('role-table')
         ->columns($this->getColumns())
-        
+
         ->minifiedAjax()
         ->dom('Bfrtip')
         ->orderBy(1)
