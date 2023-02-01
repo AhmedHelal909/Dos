@@ -30,7 +30,7 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-  
+
     protected $appended=['image_path'];
     public function getImagePathAttribute()
     {
@@ -44,11 +44,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-   
-  
-  
-     
 
-  
-    
+
+
+
+
+
+
 }

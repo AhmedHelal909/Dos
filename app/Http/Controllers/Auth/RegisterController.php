@@ -6,6 +6,7 @@ use App\Enum\StatusEnum;
 use App\Http\Controllers\Controller;
 use App\Models\Models\Delivery;
 use App\Models\Models\Vendor;
+use App\Models\Pharmacy;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -46,31 +47,18 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
-        $this->middleware('guest:vendor');
-        $this->middleware('guest:delivery');
+        $this->middleware('guest:pharmacy');
     }
     public function showVendorRegisterForm()
     {
         return view('auth.register', ['route' => route('admin.register-view'), 'title'=>'Admin']);
     }
-    protected function createVendor(array $data)
+    protected function createPharmacy(array $data)
     {
-        $admin = Vendor::create([
+        $admin = Pharmacy::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'status'=>StatusEnum::getPending(),
-            'branch_id'=>[null]
-        ]);
-    }
-    protected function createDelivery(array $data)
-    {
-        $admin = Delivery::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'status'=>StatusEnum::getPending(),
-            'branch_id'=>[null]
         ]);
     }
 
@@ -88,26 +76,30 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
- 
+
     public function register(Request $request)
     {
         $this->validator($request->all())->validate();
-        if($request->type == 'vendor'){
+        if($request->type == 'pharmacy') {
 
-            $user = $this->createVendor($request->all());
+            $user = $this->createPharmacy($request->all());
             event(new Registered($user));
             $login = new LoginController();
-            // $login->vendorLogin($request);
-        }else if($request->type == 'delivery') {
-            $user = $this->createDelivery($request->all());
-            event(new Registered($user));
-            $login = new LoginController();
-        
-        } else  {
-        event(new Registered($user = $this->create($request->all())));
-        
-        // $this->guard()->login($user);
+             $login->vendorLogin($request);
+        }else{
+            session()->flash('error', __('site.you_are_not_allowed_to_register'));
+            return redirect()->back();
         }
+//        else if($request->type == 'delivery') {
+//            $user = $this->createDelivery($request->all());
+//            event(new Registered($user));
+//            $login = new LoginController();
+//        }
+//        else  {
+////        event(new Registered($user = $this->create($request->all())));
+//
+//        // $this->guard()->login($user);
+//        }
 
         if ($response = $this->registered($request, $user)) {
             return $response;
@@ -116,7 +108,7 @@ class RegisterController extends Controller
         return $request->wantsJson()
                     ? new JsonResponse([], 201)
                     : redirect($this->redirectPath());
- 
+
     }
     /**
      * Create a new user instance after a valid registration.

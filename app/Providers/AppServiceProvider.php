@@ -5,7 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
-
+use Illuminate\Pagination\Paginator;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -29,6 +29,8 @@ class AppServiceProvider extends ServiceProvider
         Blade::if('havePermission',function($permission,$guard){
            return auth($guard)->user()->hasPermissionTo($permission,$guard);
         });
+
+        Paginator::useBootstrap();
 
     }
 }

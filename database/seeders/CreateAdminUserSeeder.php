@@ -3,7 +3,7 @@ namespace Database\Seeders;
 
 use App\Enum\StatusEnum;
 use App\Models\Delivery;
-use App\Models\Vendor;
+use App\Models\Pharmacy;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
@@ -21,47 +21,37 @@ public function run()
          $user = User::create([
         'name' => 'super',
         'email' => 'super@eg.com',
-        'phone' => '01208645789',
-        'password' => bcrypt('12345'),
+        'phone' => '01234567890',
+        'password' => bcrypt('123123123'),
         // 'branch_id'=> [null],
-        'status'=>StatusEnum::getAppoved()
+//        'status'=>StatusEnum::getAppoved()
         ]);
-     
-         $vendor = Vendor::create([
-        'name' => 'vendor',
-        'email' => 'vendor@eg.com',
-        'phone' => '01208645789',
-        'sec_phone' => '01208645789',
-        // 'long' => '50',
-        // 'lat' => '40',
-        // 'branch_id'=> [null],
-        'password' => bcrypt('12345'),
-        'status'=>StatusEnum::getAppoved()
+
+         $pharmacy = Pharmacy::create([
+        'name' => 'Pharmacy',
+        'email' => 'pharmacy@eg.com',
+        'phone' => '01234567890',
+        'sec_phone' => '01234567891',
+        'password' => bcrypt('123123123'),
+//        'status'=>StatusEnum::getAppoved()
         ]);
-        $delivery = Delivery::create([
-                'name' => 'super',
-                'email' => 'delivery@eg.com',
-                'password' => bcrypt('12345'),
-                'status'=>StatusEnum::getAppoved(),
-                // 'branch_id'=> ["1"],
 
-                ]);
 
-        $role = Role::create(['name' => 'owner']);
-        $vendorRole = Role::create(['guard_name'=>'vendor','name' => 'vendor']);
-        $deliveryRole = Role::create(['guard_name'=>'delivery','name' => 'delivery']);
+        $role = Role::create(['name' => 'super']);
+        $pharmacyRole = Role::create(['guard_name'=>'pharmacy','name' => 'pharmacy']);
+//        $deliveryRole = Role::create(['guard_name'=>'delivery','name' => 'delivery']);
 
         $permissions = Permission::where('guard_name','web')->pluck('id','id');
-        $vendorPermissions = Permission::where('guard_name','vendor')->pluck('id','id');
-        $deliveryPermissions = Permission::where('guard_name','delivery')->pluck('id','id');
+        $pharmacyPermissions = Permission::where('guard_name','pharmacy')->pluck('id','id');
+//        $deliveryPermissions = Permission::where('guard_name','delivery')->pluck('id','id');
 
         $role->syncPermissions($permissions);
-        $vendorRole->syncPermissions($vendorPermissions);
-        $deliveryRole->syncPermissions($deliveryPermissions);
+        $pharmacyRole->syncPermissions($pharmacyPermissions);
+//        $deliveryRole->syncPermissions($deliveryPermissions);
 
         $user->assignRole([$role->id]);
-        $vendor->assignRole([$vendorRole->id]);
-        $delivery->assignRole([$deliveryRole->id]);
+        $pharmacy->assignRole([$pharmacyRole->id]);
+//        $delivery->assignRole([$deliveryRole->id]);
 
 
 }

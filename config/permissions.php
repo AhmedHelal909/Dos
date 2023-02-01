@@ -1,24 +1,17 @@
 <?php
 return [
-    "company"=>[
+    "super" => [
         "users",
         "roles",
-        "vendors",
-        "deliveries"
-       
-    ],
-    "vendors"=>[
-        "users",
-        "roles",
-        "vendors",
-       "deliveries"
-    ],
-    'deliveries'=>[
-        "users",
-        "roles",
-        "vendors",
-        "deliveries"
+        "pharmacies",
+        "orders"
 
-    ]
+    ],
+    "pharmacy" => [
+        "users",
+        "roles",
+        "pharmacies",
+        "orders"
+    ],
 
 ];

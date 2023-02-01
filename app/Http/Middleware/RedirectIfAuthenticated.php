@@ -23,8 +23,8 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
 
-            if ($guard == "vendor" && Auth::guard($guard)->check()) {
-                return redirect('/vendor/home');
+            if ($guard == "pharmacy" && Auth::guard($guard)->check()) {
+                return redirect('/pharmacy/home');
             }
 
             if (Auth::guard($guard)->check()) {

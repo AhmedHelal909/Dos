@@ -27,11 +27,11 @@ class UserDataTable extends DataTable
                 $row = $query;
                 $module_name_singular = 'user';
                 $module_name_plural   = 'users';
-                return view('dashboard.includes.buttons.edit', compact('module_name_singular', 'module_name_plural', 'row'))  . view('dashboard.includes.buttons.show', compact('module_name_singular', 'module_name_plural', 'row'))
-                
-                . view('dashboard.includes.buttons.read_branch', compact('module_name_singular', 'module_name_plural', 'row'));
-            
-            
+                return view('dashboard.includes.buttons.edit', compact('module_name_singular', 'module_name_plural', 'row'))
+
+                . view('dashboard.includes.buttons.delete', compact('module_name_singular', 'module_name_plural', 'row'));
+
+
             })
 ;
     }

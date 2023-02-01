@@ -6,8 +6,8 @@ class GuardEnum
 {
 
     public const WEB        = 'web';
-    public const VENDOR     = 'vendor';
-    public const DELIVERY   = 'delivery';
+    public const PHARMACY     = 'pharmacy';
+//    public const DELIVERY   = 'delivery';
 
     /**
      * @param string $value
@@ -16,9 +16,9 @@ class GuardEnum
     public static function getList(string $value = ''): array
     {
         return [
-            self::VENDOR    => 'vendor',
+            self::PHARMACY    => 'pharmacy',
             self::WEB       => 'web',
-            self::DELIVERY  => 'delivery',
+//            self::DELIVERY  => 'delivery',
         ];
     }
 
@@ -45,10 +45,10 @@ class GuardEnum
      */
     public static function getVendor(): string
     {
-        return self::VENDOR;
+        return self::PHARMACY;
     }
-    public static function getDelivery(): string
-    {
-        return self::DELIVERY;
-    }
+//    public static function getDelivery(): string
+//    {
+//        return self::DELIVERY;
+//    }
 }

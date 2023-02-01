@@ -5,14 +5,14 @@ namespace App\Http\Controllers\Dashboard\Company;
 use App\DataTables\VendorDateTable;
 use App\Http\Controllers\Dashboard\BaseDatatableController;
 use App\Http\Requests\VendorRequest;
-use App\Models\Vendor;
+use App\Models\Pharmacy;
 
 class VendorController extends BaseDatatableController
 {
 
     protected $uploadImages = ['image'];
 
-    public function __construct(Vendor $model, VendorDateTable $vendorDataTable)
+    public function __construct(Pharmacy $model, VendorDateTable $vendorDataTable)
     {
         parent::__construct($model, $vendorDataTable);
     }
@@ -38,7 +38,7 @@ class VendorController extends BaseDatatableController
         // return $row;
         return view(static::VIEW .'.'. $this->getClassNameFromModel() . '.edit', compact('row', 'module_name_singular', 'module_name_plural'))->with($this->append());
     } //end of edit
-    public function update(VendorRequest $request, Vendor $vendor)
+    public function update(VendorRequest $request, Pharmacy $vendor)
     {
 
         $request_data = $request->except(array_merge($this->uploadImages, ['_token','password_confirmation', 'roles']));
@@ -60,7 +60,7 @@ class VendorController extends BaseDatatableController
     {
         return [
         ];
-        
+
     }
 
 }

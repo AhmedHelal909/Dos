@@ -39,18 +39,17 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
-        $this->middleware('guest:vendor')->except('logout');
-        $this->middleware('guest:delivery')->except('logout');
+        $this->middleware('guest:pharmacy')->except('logout');
     }
     public function showVendorLoginForm()
     {
-        return view('auth.login', ['url' => route('vendor.login-view'), 'title'=>'vendor']);
+        return view('auth.login', ['url' => route('pharmacy.login-view'), 'title'=>'Pharmacy Login']);
     }
-    public function showDeliveryLoginForm()
-    {
-        return view('auth.login', ['url' => route('delivery.login-view'), 'title'=>'delivery']);
-    }
-    
+//    public function showDeliveryLoginForm()
+//    {
+//        return view('auth.login', ['url' => route('delivery.login-view'), 'title'=>'delivery']);
+//    }
+
     public function login(Request $request)
     {
         $this->validateLogin($request);
@@ -68,7 +67,7 @@ class LoginController extends Controller
         if (Auth::guard('web')->attempt([
             'email'=>$request->email,
             'password'=>$request->password,
-            'status'=>StatusEnum::getAppoved(),])) {
+            ])) {
             if ($request->hasSession()) {
                 $request->session()->put('auth.password_confirmed_at', time());
             }
@@ -89,28 +88,12 @@ class LoginController extends Controller
             'email'   => 'required|email',
             'password' => 'required'
         ]);
-        if (Auth::guard('vendor')->attempt([
+        if (Auth::guard('pharmacy')->attempt([
                     'email'=>$request->email,
-                    'password'=>$request->password,
-                    'status'=>StatusEnum::getAppoved()])){
-            return redirect()->intended('/vendor/home');
+                    'password'=>$request->password])){
+            return redirect()->intended('/pharmacy/home');
         }
-           
-        return back()->withInput($request->only('email', 'remember'));
-    }
-    public function deliveryLogin(Request $request)
-    {
-        $this->validate($request, [
-            'email'   => 'required|email',
-            'password' => 'required'
-        ]);
-        if (Auth::guard('delivery')->attempt([
-                    'email'=>$request->email,
-                    'password'=>$request->password,
-                    'status'=>StatusEnum::getAppoved()])){
-            return redirect()->intended('/dashboard/home');
-        }
-           
+
         return back()->withInput($request->only('email', 'remember'));
     }
 
@@ -118,6 +101,6 @@ class LoginController extends Controller
     {
         // session()->put('branch_id',$user->branch_id);
     }
-  
-  
+
+
 }

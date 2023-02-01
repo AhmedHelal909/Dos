@@ -33,18 +33,13 @@ class UserRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'address' => 'required',
-            'ssn' => 'required|numeric',
-            'age' => 'required',
-            'gender'          => ['required', 'integer', Rule::in(GenderEnum::getKeyList())],
+            'address' => 'nullable',
+            'age' => 'nullable',
             'phone' => 'required|unique:users,phone|numeric',
             'email' => 'required|unique:users,email',
-            'salary' => 'required|numeric',
-            'status' => 'required|' . Rule::in(StatusEnum::getKeyList()),
             'password' => 'required|min:5|string|confirmed|max:100',
             'password_confirmation' => 'required|min:5|string|same:password|max:100',
             'image'          => 'required|mimes:jpg,jpeg,png,svg',
-            'roles' => 'required|exists:roles,id',
 
         ];
     }
@@ -52,18 +47,13 @@ class UserRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'address' => 'required',
-            'ssn' => 'required|numeric',
-            'age' => 'required',
-            'gender'          => ['required', 'integer', Rule::in(GenderEnum::getKeyList())],
+            'address' => 'nullable',
+            'age' => 'nullable',
             'phone' => ['required',Rule::unique('users','phone')->ignore($this->route()->parameter('user')->id),'numeric'],
             'email' => ['required',Rule::unique('users','email')->ignore($this->route()->parameter('user')->id)],
-            'salary' => 'required|numeric',
-            'status' => 'required|' . Rule::in(StatusEnum::getKeyList()),
             'password' => 'nullable|min:5|string|confirmed|max:100',
             'password_confirmation' => 'nullable|min:5|string|same:password|max:100',
             'image'          => 'nullable|mimes:jpg,jpeg,png,svg',
-            'roles' => 'required|exists:roles,id',
 
         ];
     }

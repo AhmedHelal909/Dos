@@ -20,31 +20,19 @@ class PermissionDatabaseSeeder extends Seeder
             'update',
             'delete',
         ];
-        $deliveryRoles = [
-             'read',
-             'update_status'
-        ];
-      $company = config('permissions.company');
-      $vendor = config('permissions.vendors');
-      $delivery = config('permissions.deliveries');
+
+      $super = config('permissions.super');
+      $pharmacy = config('permissions.pharmacy');
+//      $delivery = config('permissions.deliveries');
 
         foreach ($roles as $role) {
-            foreach ($company as $model) {
+            foreach ($super as $model) {
                 Permission::create(['guard_name' =>'web','name' => $role . '-' . $model]);
-
             }
-            foreach ($vendor as $permission ) {
-                Permission::create(['guard_name' =>'vendor','name' => $role . '-' . $permission]);
-
+            foreach ($pharmacy as $permission ) {
+                Permission::create(['guard_name' =>'pharmacy','name' => $role . '-' . $permission]);
             }
-           
-        }
-        foreach ($deliveryRoles as $div){
 
-            foreach ($delivery as $permission ) {
-                Permission::create(['guard_name' =>'delivery','name' => $div . '-' . $permission]);
-    
-            }
         }
 
     }

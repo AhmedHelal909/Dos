@@ -40,16 +40,17 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        'vendor' => [
+        'pharmacy' => [
             'driver' => 'session',
-            'provider' => 'vendors',
+            'provider' => 'pharmacies',
         ],
-        
-        'delivery' => [
-            'driver' => 'session',
-            'provider' => 'deliveries',
-        ],
+
         'customer' => [
+            'driver' => 'jwt',
+            'provider' => 'customers',
+        ],
+
+        'api' => [
             'driver' => 'jwt',
             'provider' => 'customers',
         ],
@@ -74,22 +75,22 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'users' => [ // for admin
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-        'vendors' => [
+        'pharmacies' => [ // for pharmacy
             'driver' => 'eloquent',
-            'model' => App\Models\Models\Vendor::class,
+            'model' => App\Models\Pharmacy::class,
         ],
-        'customers' => [
+        'customers' => [ // for clinic (users)
             'driver' => 'eloquent',
-            'model' => App\Models\Models\Customer::class,
+            'model' => App\Models\Customer::class,
         ],
-        'deliveries' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\Models\Delivery::class,
-        ],
+//        'deliveries' => [
+//            'driver' => 'eloquent',
+//            'model' => App\Models\Models\Delivery::class,
+//        ],
 
         // 'users' => [
         //     'driver' => 'database',
@@ -119,18 +120,18 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
-        'vendors' => [
-            'provider' => 'vendors',
+        'pharmacy' => [
+            'provider' => 'pharmacies',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
         ],
-        'deliveries' => [
-            'provider' => 'deliveries',
-            'table' => 'password_resets',
-            'expire' => 60,
-            'throttle' => 60,
-        ],
+//        'customers' => [
+//            'provider' => 'customers',
+//            'table' => 'password_resets',
+//            'expire' => 60,
+//            'throttle' => 60,
+//        ],
     ],
 
     /*

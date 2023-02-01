@@ -18,7 +18,7 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     public const HOME = '/dashboard/home';
-    public const VENDOR = '/vendor/home';
+    public const VENDOR = '/pharmacy/home';
     protected $namespace = 'App\Http\Controllers';
     protected $vendorController = 'App\Http\Controllers';
 
@@ -37,12 +37,12 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/api.php'));
 
             Route::middleware('web')
-            ->namespace($this->namespace)
+//            ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
             Route::middleware('web')
-            ->namespace($this->vendorController)
-                ->group(base_path('routes/vendor.php'));
-         
+//            ->namespace($this->vendorController)
+                ->group(base_path('routes/pharmacy.php'));
+
         });
     }
 
