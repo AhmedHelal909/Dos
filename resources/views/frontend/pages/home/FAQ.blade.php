@@ -18,7 +18,7 @@
                         <!-- FAQ Items Start -->
                         <div class="faq--items" id="faqItems" data-scroll-reveal="group">
                             <div class="title pb--20">
-                                <h2 class="h2 fw--600">Why Choose Us</h2>
+                                <h2 class="h2 fw--600">{{__('site.why choose us')}}</h2>
                             </div>
 
                             <!-- FAQ Item Start -->
@@ -27,7 +27,7 @@
                                     <h3 class="h6 fw--700 text-darker">
                                         <a href="#faqItem01" data-parent="#faqItems" data-toggle="collapse"
                                             class="collapsed">
-                                            <span>Our Mission</span>
+                                            <span>{{__('site.our mission')}}</span>
                                         </a>
                                     </h3>
                                 </div>
@@ -48,7 +48,7 @@
                                     <h3 class="h6 fw--700 text-darker">
                                         <a href="#faqItem02" data-parent="#faqItems" data-toggle="collapse"
                                             class="collapsed">
-                                            <span>Our Vision</span>
+                                            <span>{{__('site.our vision')}}</span>
                                         </a>
                                     </h3>
                                 </div>
@@ -69,7 +69,7 @@
                                     <h3 class="h6 fw--700 text-darker">
                                         <a href="#faqItem03" data-parent="#faqItems" data-toggle="collapse"
                                             class="collapsed">
-                                            <span>Our Goals</span>
+                                            <span>{{__('site.our goals')}}</span>
                                         </a>
                                     </h3>
                                 </div>

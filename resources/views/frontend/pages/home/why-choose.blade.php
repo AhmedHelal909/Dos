@@ -7,7 +7,7 @@
                         <!-- Text Block Start -->
                         <div class="text--block pb--10">
                             <div class="title">
-                                <h2 class="h2 fw--600">About Dose</h2>
+                                <h2 class="h2 fw--600">{{__('site.about')}}</h2>
                             </div>
 
                             <div class="content">

@@ -5,7 +5,7 @@
             <div class="container">
                 <div class="section--title pb--50 text-center">
                     <div class="title">
-                        <h2 class="h2">Meet Our Team</h2>
+                        <h2 class="h2">{{__('site.Meet Our Team')}}</h2>
                     </div>
                 </div>
 

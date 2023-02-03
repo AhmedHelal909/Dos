@@ -25,7 +25,6 @@ class StatusEnum
         ];
     }
 
-
     public static function getKeyList(): array
     {
         return array_keys(self::getList());

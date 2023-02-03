@@ -22,3 +22,20 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+<link href="https://fonts.googleapis.com/css?family=Cairo:400,700" rel="stylesheet">
+    
+<style>
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    p,
+    a,
+    input,
+    span,
+    h6 {
+        font-family: 'Cairo', sans-serif !important;
+    }
+</style>

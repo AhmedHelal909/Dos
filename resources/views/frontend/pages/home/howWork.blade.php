@@ -5,8 +5,8 @@
         <div class="section--title pb--50 text-center">
             <div class="title">
                 <h2 class="h2 ml15">
-                    <span class="word">How it</span>
-                    <span class="word">works?</span>
+                    <span class="word">{{__('site.How it')}}</span>
+                    <span class="word">{{__('site.works?')}}</span>
                 </h2>
             </div>
         </div>
@@ -44,10 +44,10 @@
 
                         <div class="info">
                             <div class="title">
-                                <h3 class="h4 fw--700">Create An Account</h3>
+                                <h3 class="h4 fw--700">{{__('site.Create An Account')}}</h3>
                             </div>
                             <div class="desc">
-                                <p>Create New Account.</p>
+                                <p>{{__('site.Create New Account.')}}</p>
                             </div>
 
                         </div>
@@ -62,10 +62,10 @@
 
                         <div class="info">
                             <div class="title">
-                                <h3 class="h4 fw--700">Login </h3>
+                                <h3 class="h4 fw--700">{{__('site.login')}} </h3>
                             </div>
                             <div class="desc">
-                                <p>Login to your Account.</p>
+                                <p>{{__('site.Login to your Account.')}}</p>
                             </div>
                         </div>
                     </div>
@@ -80,10 +80,10 @@
 
                         <div class="info">
                             <div class="title">
-                                <h3 class="h4 fw--700">Make Order</h3>
+                                <h3 class="h4 fw--700">{{__('site.Make Order')}}</h3>
                             </div>
                             <div class="desc">
-                                <p>add New order.</p>
+                                <p>{{__('site.add New order.')}}</p>
                             </div>
                         </div>
                     </div>
@@ -98,10 +98,10 @@
 
                         <div class="info">
                             <div class="title">
-                                <h3 class="h4 fw--700">Edit Order</h3>
+                                <h3 class="h4 fw--700">{{__('site.Edit Order')}}</h3>
                             </div>
                             <div class="desc">
-                                <p>Edit Your Current Order.</p>
+                                <p>{{__('site.Edit Your Current Order.')}}</p>
                             </div>
 
                         </div>
@@ -116,10 +116,10 @@
 
                         <div class="info">
                             <div class="title">
-                                <h3 class="h4 fw--700">Order Status</h3>
+                                <h3 class="h4 fw--700">{{__('site.Order Status')}}</h3>
                             </div>
                             <div class="desc">
-                                <p>See Current Order status.</p>
+                                <p>{{__('site.See Current Order status.')}}</p>
                             </div>
                         </div>
                     </div>
