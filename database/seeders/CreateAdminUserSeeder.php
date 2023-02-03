@@ -1,8 +1,6 @@
 <?php
 namespace Database\Seeders;
 
-use App\Enum\StatusEnum;
-use App\Models\Delivery;
 use App\Models\Pharmacy;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
@@ -22,7 +20,7 @@ public function run()
         'name' => 'super',
         'email' => 'super@eg.com',
         'phone' => '01234567890',
-        'password' => bcrypt('123123123'),
+        'password' => bcrypt('12345'),
         // 'branch_id'=> [null],
 //        'status'=>StatusEnum::getAppoved()
         ]);
@@ -32,7 +30,7 @@ public function run()
         'email' => 'pharmacy@eg.com',
         'phone' => '01234567890',
         'sec_phone' => '01234567891',
-        'password' => bcrypt('123123123'),
+        'password' => bcrypt('12345'),
 //        'status'=>StatusEnum::getAppoved()
         ]);
 

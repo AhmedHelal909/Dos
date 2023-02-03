@@ -68,6 +68,7 @@ class Kernel extends HttpKernel
         'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
         'auth_customer'=> \App\Http\Middleware\authenticateCustomer::class,
         'lang'=> \App\Http\Middleware\ChangeLanguage::class,
+        'change_type'=> \App\Http\Middleware\changeGuardType::class,
           /**** OTHER MIDDLEWARE ****/
           'localize'                => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRoutes::class,
           'localizationRedirect'    => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRedirectFilter::class,
