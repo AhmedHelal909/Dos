@@ -45,13 +45,17 @@ Route::group(
         Route::prefix('dashboard')->middleware(['auth'])->name('dashboard.')->group(function () {
             Route::resource('users', \App\Http\Controllers\Dashboard\Company\UserController::class);
             Route::resource('pharmacies', \App\Http\Controllers\Dashboard\Company\PharmacyController::class);
+            Route::resource('sliders', \App\Http\Controllers\Dashboard\Company\SliderController::class);
             Route::resource('orders', \App\Http\Controllers\Dashboard\Company\OrderController::class)->except(['destroy']);
             Route::resource('roles', RoleController::class)->except(['destroy']);
             Route::resource('vendors', \App\Http\Controllers\Dashboard\Company\VendorController::class)->except(['destroy']);
+            Route::resource('settings', \App\Http\Controllers\Dashboard\Company\SettingController::class)->except(['destroy']);
+            Route::resource('contacts', \App\Http\Controllers\Dashboard\Company\ContactUController::class)->except(['destroy']);
 
 
             Route::get('test',function(){
-                // test
+                $order = \App\Models\Order::with('pharmacies')->find(1);
+                return $order;
             });
         });
 

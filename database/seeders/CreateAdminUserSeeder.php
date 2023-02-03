@@ -36,6 +36,26 @@ public function run()
 //        'status'=>StatusEnum::getAppoved()
         ]);
 
+         $pharmacy = Pharmacy::create([
+        'name' => 'Pharmacy 2',
+        'email' => 'pharmacy2@eg.com',
+        'phone' => '01234567893',
+        'sec_phone' => '01234567892',
+        'password' => bcrypt('123123123'),
+//        'status'=>StatusEnum::getAppoved()
+        ]);
+
+         $pharmacy = Pharmacy::create([
+        'name' => 'Pharmacy 3',
+        'email' => 'pharmacy3@eg.com',
+        'phone' => '01234567895',
+        'sec_phone' => '01234567895',
+        'password' => bcrypt('123123123'),
+//        'status'=>StatusEnum::getAppoved()
+        ]);
+
+
+
 
         $role = Role::create(['name' => 'super']);
         $pharmacyRole = Role::create(['guard_name'=>'pharmacy','name' => 'pharmacy']);

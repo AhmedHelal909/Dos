@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('address');
             $table->string('medical_number');
             $table->string('id_number');
+            $table->json('pharmacy_ids')->nullable();
             $table->string('status')->comment('1:pending,2:accepted,3:processing,4:completed');
             $table->unsignedInteger('customer_id');
             $table->foreign('customer_id')->references('id')->on('customers');

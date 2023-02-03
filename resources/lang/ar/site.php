@@ -202,6 +202,7 @@ return [
     'pharmacy.edit' => 'تعديل صيدلية',
     'Profile' => 'الملف الشخصى',
     'pharmacy' => 'صيدلية',
+    'link' => 'لينك',
     'established_at' => 'تاريخ التاسيس',
     'website' => 'لينك الموقع الالكترونى',
     'choose_active' => 'أختر الحالة',

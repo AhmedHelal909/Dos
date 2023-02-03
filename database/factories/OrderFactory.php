@@ -24,6 +24,7 @@ class OrderFactory extends Factory
             'id_number' => $this->faker->randomNumber(8),
             'status' => $this->faker->randomElement(['1', '2', '3', '4']),
             'customer_id' => $this->faker->randomElement([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
+            'pharmacy_ids' => $this->faker->randomElement([null, [1, 2], [1], [2], [2,3], [1,3], [1,2,3]]),
         ];
     }
 }

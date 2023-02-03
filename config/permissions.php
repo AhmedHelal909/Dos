@@ -4,14 +4,20 @@ return [
         "users",
         "roles",
         "pharmacies",
-        "orders"
+        "orders",
+        "orderdetails",
+        "sliders",
+        "settings",
+        "contacts",
 
     ],
     "pharmacy" => [
         "users",
         "roles",
         "pharmacies",
-        "orders"
+        "orders",
+        "orderdetails",
+        "sliders",
     ],
 
 ];
