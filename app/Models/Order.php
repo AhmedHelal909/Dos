@@ -11,6 +11,11 @@ class Order extends Model
 
     protected $guarded = [];
 
+    protected $casts = [
+        'pharmacy_ids' => 'array'
+    ];
+
+    // pharmacy_ids in same table (orders)
     public function customer()
     {
         return $this->belongsTo(Customer::class);

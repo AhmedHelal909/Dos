@@ -2,8 +2,7 @@
 namespace Database\Seeders;
 
 use App\Enum\SettingEnum;
-use App\Models\Models\Branch;
-use App\Models\Models\Setting;
+use App\Models\Setting;
 use Illuminate\Database\Seeder;
 
 class SettingSeeder extends Seeder
@@ -15,6 +14,19 @@ class SettingSeeder extends Seeder
      */
     public function run()
     {
+
+        Setting::create([
+            'key'=>[
+                'en'=> __('site.setting_.'.'app_name',[],'en'),
+                'ar'=> __('site.setting_.'.'app_name',[],'ar'),
+            ],
+            'value'=>'Dose'
+            ]);
+
+
+
+
+
         foreach(SettingEnum::getList() as $key=>$value){
             Setting::create([
                 'key'=>[
@@ -26,4 +38,3 @@ class SettingSeeder extends Seeder
         }
     }
 }
-       

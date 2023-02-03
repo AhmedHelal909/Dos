@@ -12,6 +12,20 @@
 </li>
 @endhavePermission
 
+@havePermission('read-sliders', 'web')
+<li class="has_sub">
+    <a href="javascript:void(0);" class="waves-effect"><i class="fas fa-building"></i>
+        <span> {{ __('site.sliders') }} </span>
+        <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+    <ul class="list-unstyled" style="display: none;">
+        <li><a href="{{ route('dashboard.sliders.index') }}">{{ __('site.index') }}</a></li>
+        @havePermission('create-sliders', 'web')
+        <li><a href="{{ route('dashboard.sliders.create') }}">{{ __('site.sliders.add') }}</a></li>
+        @endhavePermission
+    </ul>
+</li>
+@endhavePermission
+
 @havePermission('read-roles', 'web')
 <li class="has_sub">
     <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-hourglass-half"></i> <span> {{ __('site.roles') }}
@@ -44,6 +58,45 @@
         @havePermission('create-pharmacies', 'web')
         <li><a href="{{ route('dashboard.pharmacies.create') }}">{{ __('site.add') }}</a></li>
         @endhavePermission
+    </ul>
+</li>
+@endhavePermission
+
+@havePermission('read-sliders', 'web')
+<li class="has_sub">
+    <a href="javascript:void(0);" class="waves-effect"> <i class="fas fa-sliders-h"></i><span>
+                {{ __('site.sliders') }} </span> <span class="menu-arrow float-right"><i
+                class="mdi mdi-chevron-right"></i></span></a>
+    <ul class="list-unstyled" style="display: none;">
+        <li><a href="{{ route('dashboard.sliders.index') }}">{{ __('site.index') }}</a></li>
+        @havePermission('create-sliders', 'web')
+        <li><a href="{{ route('dashboard.sliders.create') }}">{{ __('site.sliders.add') }}</a></li>
+        @endhavePermission
+    </ul>
+</li>
+@endhavePermission
+@havePermission('read-settings', 'web')
+<li class="has_sub">
+    <a href="javascript:void(0);" class="waves-effect"> <i class="ti-settings"></i><span> {{ __('site.settings') }}
+            </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+    <ul class="list-unstyled" style="display: none;">
+        <li><a href="{{ route('dashboard.settings.index') }}">{{ __('site.index') }}</a></li>
+        {{-- @havePermission('create-settings','web')
+    <li><a href="{{route('dashboard.settings.create')}}">{{__('site.settings.add')}}</a></li>
+ @endhavePermission  --}}
+    </ul>
+</li>
+@endhavePermission
+
+@havePermission('read-contacts', 'web')
+<li class="has_sub">
+    <a href="javascript:void(0);" class="waves-effect"> <i class="ti-settings"></i><span> {{ __('site.contacts') }}
+            </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+    <ul class="list-unstyled" style="display: none;">
+        <li><a href="{{ route('dashboard.contacts.index') }}">{{ __('site.index') }}</a></li>
+        {{-- @havePermission('create-settings','web')
+    <li><a href="{{route('dashboard.settings.create')}}">{{__('site.settings.add')}}</a></li>
+ @endhavePermission  --}}
     </ul>
 </li>
 @endhavePermission
