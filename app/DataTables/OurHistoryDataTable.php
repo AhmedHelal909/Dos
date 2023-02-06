@@ -2,12 +2,14 @@
 
 namespace App\DataTables;
 
-use App\Models\Setting;
+use App\Models\OurHistory;
+use App\Models\OurTeam;
+use App\Models\Pharmacy;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
 
-class SettingDateTable extends DataTable
+class OurHistoryDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -22,25 +24,28 @@ class SettingDateTable extends DataTable
             ->editColumn('created_at', function ($query) {
                 return $query->created_at;
             })
-            ->editColumn('key', function ($query) {
-                return $query->key;
+            ->editColumn('content', function ($query) {
+                return strip_tags($query->content);
             })
            ->addIndexColumn()
             ->addColumn('action', function ($query) {
                 $row = $query;
-                $module_name_singular = 'setting';
-                $module_name_plural   = 'settings';
-                return view('dashboard.includes.buttons.edit', compact('module_name_singular', 'module_name_plural', 'row'));             })
-            ->escapeColumns([]);
+                $module_name_singular = 'ourhistory';
+                $module_name_plural   = 'ourhistories';
+//                $edit = '<a href="' . route('dashboard.pharmacies.edit', $query->id) . '" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>';
+                return view('dashboard.includes.buttons.edit', compact('module_name_singular', 'module_name_plural', 'row'))
+                    . view('dashboard.includes.buttons.delete', compact('module_name_singular', 'module_name_plural', 'row'));
+//                return $edit . ' ' . $delete;
+            });
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\User $model
+     * @param \App\Models\OurHistory $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Setting $model)
+    public function query(OurHistory $model)
     {
         return $model->newQuery();
     }
@@ -53,14 +58,14 @@ class SettingDateTable extends DataTable
     public function html()
     {
         return $this->builder()
-            ->setTableId('setting-table')
+            ->setTableId('ourteam-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
             ->dom('Bfrtip')
             ->orderBy(1)
             ->language(['url'=>asset('assets/datatable-lang/' . app()->getLocale() . '.json')])
             ->buttons(
-                // Button::make('create'),
+                Button::make('create'),
                 Button::make('export'),
                 Button::make('print'),
                 Button::make('reset'),
@@ -76,9 +81,9 @@ class SettingDateTable extends DataTable
     protected function getColumns()
     {
         return [
-            Column::make('DT_RowIndex')->addClass('text-center')->orderable(false)->searchable(false)->title(__('site.id')),
-            Column::make('key')->addClass('text-center')->title(__('site.key')),
-            Column::make('value')->addClass('text-center')->title(__('site.value')),
+             Column::make('DT_RowIndex')->addClass('text-center')->orderable(false)->searchable(false)->title(__('site.id')),
+            Column::make('content')->addClass('text-center')->title(__('site.content')),
+            Column::make('date')->addClass('text-center')->title(__('site.date')),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

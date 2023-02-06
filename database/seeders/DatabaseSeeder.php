@@ -24,11 +24,10 @@ class DatabaseSeeder extends Seeder
         $this->call(SettingSeeder::class);
 
         Contact::create([
-            'address' => 'Cairo, Egypt',
-            'phone' => '01000000000',
-            'email' => 'dose@example.come',
-            'sec_phone' => '01000000000',
-            'about_us' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.'
+            'name' => 'Dose',
+            'email' => 'test@test.com',
+            'subject' => 'Test',
+            'message' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.'
         ]);
     }
 }

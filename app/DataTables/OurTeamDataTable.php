@@ -2,14 +2,13 @@
 
 namespace App\DataTables;
 
-use App\Models\Models\Slider;
+use App\Models\OurTeam;
+use App\Models\Pharmacy;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Html\Editor\Editor;
-use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class SliderDateTable extends DataTable
+class OurTeamDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -23,24 +22,30 @@ class SliderDateTable extends DataTable
             ->eloquent($query)
             ->editColumn('created_at', function ($query) {
                 return $query->created_at;
+            })->editColumn('name', function ($query) {
+                return $query->name;
+            })->editColumn('description', function ($query) {
+                return strip_tags($query->description);
             })
            ->addIndexColumn()
             ->addColumn('action', function ($query) {
                 $row = $query;
-                $module_name_singular = 'slider';
-                $module_name_plural   = 'sliders';
-                return view('dashboard.includes.buttons.edit', compact('module_name_singular', 'module_name_plural', 'row'))  . view('dashboard.includes.buttons.show', compact('module_name_singular', 'module_name_plural', 'row'));            })
-
-            ->escapeColumns([]);
+                $module_name_singular = 'ourteam';
+                $module_name_plural   = 'ourteams';
+//                $edit = '<a href="' . route('dashboard.pharmacies.edit', $query->id) . '" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>';
+                return view('dashboard.includes.buttons.edit', compact('module_name_singular', 'module_name_plural', 'row'))
+                    . view('dashboard.includes.buttons.delete', compact('module_name_singular', 'module_name_plural', 'row'));
+//                return $edit . ' ' . $delete;
+            });
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\User $model
+     * @param \App\Models\OurTeam $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Slider $model)
+    public function query(OurTeam $model)
     {
         return $model->newQuery();
     }
@@ -53,11 +58,11 @@ class SliderDateTable extends DataTable
     public function html()
     {
         return $this->builder()
-            ->setTableId('slider-table')
+            ->setTableId('ourteam-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
             ->dom('Bfrtip')
-            ->orderBy(3)
+            ->orderBy(1)
             ->language(['url'=>asset('assets/datatable-lang/' . app()->getLocale() . '.json')])
             ->buttons(
                 Button::make('create'),
@@ -76,12 +81,10 @@ class SliderDateTable extends DataTable
     protected function getColumns()
     {
         return [
-                                                            Column::make('DT_RowIndex')->addClass('text-center')->orderable(false)->searchable(false)->title(__('site.id')),
-
-
+             Column::make('DT_RowIndex')->addClass('text-center')->orderable(false)->searchable(false)->title(__('site.id')),
             Column::make('name')->addClass('text-center')->title(__('site.name')),
             Column::make('description')->addClass('text-center')->title(__('site.description')),
-            Column::make('priority')->addClass('text-center')->title(__('site.priority')),
+            Column::make('created_at')->addClass('text-center')->title(__('site.created_at')),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

@@ -15,13 +15,18 @@ class Order extends Model
         'pharmacy_ids' => 'array'
     ];
 
-    // pharmacy_ids in same table (orders)
     public function customer()
     {
         return $this->belongsTo(Customer::class);
     }
 
-    // status
+    protected $appended=['image_path'];
+
+    public function getImagePathAttribute()
+    {
+        return $this->image !=null ? asset('uploads/clients/'.$this->image) : asset('uploads/clients/default.png');
+    }
+
     public function getStatusAttribute($value)
     {
      //1:pending,2:accepted,3:processing,4:completed

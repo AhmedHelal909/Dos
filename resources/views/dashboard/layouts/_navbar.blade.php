@@ -90,7 +90,7 @@
                 <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg dropdown-menu-animated">
                     <!-- item-->
                     <div class="dropdown-item noti-title">
-                        <h5>Notification (3)</h5>
+                        <h5>{{ __('Languages') }}</h5>
                     </div>
 
                     <div class="slimscroll-noti">
@@ -104,12 +104,6 @@
 
                     </div>
 
-
-                    <!-- All-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-all">
-                        View All
-                    </a>
-
                 </div>
             </li>
 
@@ -120,9 +114,6 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown">
                     <a class="dropdown-item" href="{{ Auth::guard() == 'super' ? route('dashboard.users.edit', auth()->user()->id) : route('dashboard.pharmacies.edit', auth()->user()->id) }}"><i class="dripicons-user text-muted"></i> {{ __('Profile') }}</a>
-                    <a class="dropdown-item" href="#"><i class="dripicons-wallet text-muted"></i> My Wallet</a>
-                    <a class="dropdown-item" href="#"><span class="badge badge-success float-right m-t-5">5</span><i class="dripicons-gear text-muted"></i> Settings</a>
-                    <a class="dropdown-item" href="#"><i class="dripicons-lock text-muted"></i> Lock screen</a>
                     <div class="dropdown-divider"></div>
                       @if(auth()->check())
                         <form id="logout-form" action="{{ route('logout','web') }}" method="POST" style="display: none;">
@@ -130,7 +121,7 @@
                             @csrf
                         </form>
                     <a class="dropdown-item" href="#" onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();"><i class="dripicons-exit text-muted"></i> Logout</a>
+                    document.getElementById('logout-form').submit();"><i class="dripicons-exit text-muted"></i> {{ __('Logout') }}</a>
                 </div>
             </li>
 

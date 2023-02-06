@@ -9,6 +9,9 @@ return [
         "sliders",
         "settings",
         "contacts",
+        "ourteams",
+        "ourhistories",
+        "images",
 
     ],
     "pharmacy" => [
@@ -18,6 +21,11 @@ return [
         "orders",
         "orderdetails",
         "sliders",
+        "settings",
+        "contacts",
+        "ourteams",
+        "ourhistories",
+        "images",
     ],
 
 ];

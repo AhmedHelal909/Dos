@@ -1,6 +1,8 @@
 <?php
 
 use App\Enum\CustomStatusEnum;
+use App\Enum\MonthEnum;
+use App\Enum\SettingEnum;
 use App\Enum\StatusEnum;
 
 return [
@@ -212,6 +214,7 @@ return [
     'establishment_type_id' => 'نوع المؤسسة',
     'choose_establishment_type_id' => 'أختر نوع المؤسسة',
     'choose_business' => 'أختر فئة العمل',
+    'subject' => 'الموضوع',
     //jobs
     'employer_id' => 'المسئول',
     'job_field' => 'التخصص',
@@ -236,6 +239,67 @@ return [
     'males' => 'إناث',
     'females' => 'ذكور',
     'title1' => 'المسمى الوظيفى',
+
+    'message' => 'الرسالة',
+    'Logout' => 'تسجيل الخروج',
+    'Languages' => 'اللغات',
+    'contacts' => 'تواصل معنا',
+    'our_team' => 'فريق العمل',
+    'our_teams' => 'فريق العمل',
+    'ourteams' => 'فريق العمل',
+    'ourteam.add' => 'إضافة فريق عمل',
+    'ourteam.edit' => 'تعديل فريق عمل',
+    'ourteam' => 'فريق العمل',
+    'ourhistory.add' => 'إضافة تاريخ',
+    'content' => 'المحتوى',
+    'date' => 'التاريخ',
+    'ourhistories' => 'تاريخنا',
+    'deleted_successfully' => 'تم الحذف بنجاح',
+
+    // month
+    'month_.' . MonthEnum::getJanuary() => 'يناير',
+    'month_.' . MonthEnum::getFebruary() => 'فبراير',
+    'month_.' . MonthEnum::getMarch() => 'مارس',
+    'month_.' . MonthEnum::getApril() => 'ابريل',
+    'month_.' . MonthEnum::getMay() => 'مايو',
+    'month_.' . MonthEnum::getJune() => 'يونيو',
+    'month_.' . MonthEnum::getJuly() => 'يوليو',
+    'month_.' . MonthEnum::getAugust() => 'اغسطس',
+    'month_.' . MonthEnum::getSeptember() => 'سبتمبر',
+    'month_.' . MonthEnum::getOctober() => 'اكتوبر',
+    'month_.' . MonthEnum::getNovember() => 'نوفمبر',
+    'month_.' . MonthEnum::getDecember() => 'ديسمبر',
+
+    // setting
+    'setting_.' . SettingEnum::getEmail() => 'بريد الكتروني',
+    'setting_.' . SettingEnum::getFacebook() => 'فيس بوك',
+    'setting_.' . SettingEnum::getTwitter() => 'تويتر',
+    'setting_.' . SettingEnum::getSliderTime() => 'سلايدرز',
+    'setting_.' . SettingEnum::getOurMission() => 'مهمتنا بالانجليزية',
+    'setting_.' . SettingEnum::getOurMissionAr() => 'مهمتنا بالعربية',
+    'setting_.' . SettingEnum::getOurVision() => 'رؤيتنا بالانجليزية',
+    'setting_.' . SettingEnum::getOurVisionAr() => 'رؤيتنا بالعربية',
+    'setting_.' . SettingEnum::getOurGoals() => 'أهدافنا بالانجليزية',
+    'setting_.' . SettingEnum::getOurGoalsAr() => 'أهدافنا بالعربية',
+    'setting_.' . SettingEnum::getTelephone() => 'رقم الهاتف',
+    'setting_.' . SettingEnum::getAddress() => 'العنوان بالانجليزية',
+    'setting_.' . SettingEnum::getAddressAr() => 'العنوان بالعربية',
+    'setting_.' . SettingEnum::getAboutUs() => 'من نحن بالانجليزية',
+    'setting_.' . SettingEnum::getAboutUsAr() => 'من نحن بالعربية',
+    'setting_.' . SettingEnum::getGoogle() => 'رابط جوجل',
+    'setting_.' . SettingEnum::getWebsite() => 'رابط الموقع',
+    'setting_.' . SettingEnum::getPlayStore() => 'رابط متجر جوجل',
+    'setting_.' . SettingEnum::getAppStore() => 'رابط متجر ابل',
+    'setting_.' . SettingEnum::getStores() => 'عدد متاجرنا',
+    'setting_.' . SettingEnum::getMemberOnline() => 'عدد الأعضاء المتواجدين',
+    'setting_.' . SettingEnum::getActiveGroup() => 'عدد المجموعات النشطة',
+    'setting_.' . SettingEnum::getNewEvent() => 'عدد الأحداث الجديدة',
+    'setting_.' . SettingEnum::getYoutubeLink() => 'رابط اليوتيوب',
+
+
+
+
+
     //employeejobs
     'employeejobs' => 'المتقدمون',
     'employeejob' => 'المتقدم',

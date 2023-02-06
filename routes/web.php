@@ -1,11 +1,13 @@
 <?php
 
+use App\Enum\MonthEnum;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Dashboard\Company\RoleController;
 use App\Http\Controllers\Dashboard\OrderController;
 use App\Http\Controllers\Dashboard\PharmacyController;
 use App\Http\Controllers\HomeController;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -24,7 +26,7 @@ Route::group(
     ],
     function () {
         Route::group(['middleware' => ['guest']], function () {
-            Route::get('/', function () {
+            Route::get('dashboard/', function () {
                 return view('auth.selection');
             })->name('selection');
 
@@ -45,6 +47,8 @@ Route::group(
         Route::prefix('dashboard')->middleware(['auth'])->name('dashboard.')->group(function () {
             Route::resource('users', \App\Http\Controllers\Dashboard\Company\UserController::class);
             Route::resource('pharmacies', \App\Http\Controllers\Dashboard\Company\PharmacyController::class);
+            Route::resource('ourteams', \App\Http\Controllers\Dashboard\Company\OurTeamController::class);
+            Route::resource('ourhistories', \App\Http\Controllers\Dashboard\Company\OurHistoryController::class);
             Route::resource('sliders', \App\Http\Controllers\Dashboard\Company\SliderController::class);
             Route::resource('orders', \App\Http\Controllers\Dashboard\Company\OrderController::class)->except(['destroy']);
             Route::resource('roles', RoleController::class)->except(['destroy']);
@@ -54,8 +58,11 @@ Route::group(
 
 
             Route::get('test',function(){
-                $order = \App\Models\Order::with('pharmacies')->find(1);
-                return $order;
+                $h = \App\Models\OurHistory::first();
+                $x = Carbon::parse($h->date)->month;
+                $y = MonthEnum::getList()[$x];
+                return $y;
+
             });
         });
 

@@ -78,10 +78,10 @@ class ContactUsDateTable extends DataTable
     {
         return [
             Column::make('DT_RowIndex')->addClass('text-center')->orderable(false)->searchable(false)->title(__('site.id')),
-            Column::make('address')->addClass('text-center')->title(__('site.address')),
-            Column::make('phone')->addClass('text-center')->title(__('site.phone')),
+            Column::make('name')->addClass('text-center')->title(__('site.name')),
             Column::make('email')->addClass('text-center')->title(__('site.email')),
-            Column::make('sec_phone')->addClass('text-center')->title(__('site.sec_phone')),
+            Column::make('subject')->addClass('text-center')->title(__('site.subject')),
+            Column::make('message')->addClass('text-center')->title(__('site.message')),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

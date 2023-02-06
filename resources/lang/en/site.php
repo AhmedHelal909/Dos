@@ -1,6 +1,8 @@
 <?php
 
 use App\Enum\CustomStatusEnum;
+use App\Enum\MonthEnum;
+use App\Enum\SettingEnum;
 use App\Enum\StatusEnum;
 
 return [
@@ -353,6 +355,7 @@ return [
     'all' => 'all',
     'created_at' => 'created at',
     'link' => 'link',
+    'subject' => 'subject',
     'back' => 'back',
     'BIRTH_DATE' => 'birth_date',
     'birth_date' => 'birth_date',
@@ -388,9 +391,63 @@ return [
     'our goals'=>'Our Goals',
     'Meet Our Team'=>'Our Team',
 
+    // settings
+    // setting
+    'setting_.' . SettingEnum::getEmail() => 'Email',
+    'setting_.' . SettingEnum::getFacebook() => 'Facebook',
+    'setting_.' . SettingEnum::getTwitter() => 'Twitter',
+    'setting_.' . SettingEnum::getSliderTime() => 'Slider Time',
+    'setting_.' . SettingEnum::getOurMission() => 'Our Mission En',
+    'setting_.' . SettingEnum::getOurMissionAr() => 'Our Mission Ar',
+    'setting_.' . SettingEnum::getOurVision() => 'Our Vision En',
+    'setting_.' . SettingEnum::getOurVisionAr() => 'Our Vision Ar',
+    'setting_.' . SettingEnum::getOurGoals() => 'Our Goals En',
+    'setting_.' . SettingEnum::getOurGoalsAr() => 'Our Goals Ar',
+    'setting_.' . SettingEnum::getTelephone() => 'Telephone',
+    'setting_.' . SettingEnum::getAddress() => 'Address En',
+    'setting_.' . SettingEnum::getAddressAr() => 'Address Ar',
+    'setting_.' . SettingEnum::getAboutUs() => 'About Us En',
+    'setting_.' . SettingEnum::getAboutUsAr() => 'About Us Ar',
+    'setting_.' . SettingEnum::getGoogle() => 'Google',
+    'setting_.' . SettingEnum::getWebsite() => 'Website',
+    'setting_.' . SettingEnum::getPlayStore() => 'Play Store',
+    'setting_.' . SettingEnum::getAppStore() => 'App Store',
+    'setting_.' . SettingEnum::getStores() => 'Stores',
+    'setting_.' . SettingEnum::getMemberOnline() => 'Member Online',
+    'setting_.' . SettingEnum::getActiveGroup() => 'Active Group',
+    'setting_.' . SettingEnum::getNewEvent() => 'New Event',
+    'setting_.' . SettingEnum::getYoutubeLink() => 'Youtube Link',
+
+    // months
+    'month_.' . MonthEnum::getJanuary() => 'January',
+    'month_.' . MonthEnum::getFebruary() => 'February',
+    'month_.' . MonthEnum::getMarch() => 'March',
+    'month_.' . MonthEnum::getApril() => 'April',
+    'month_.' . MonthEnum::getMay() => 'May',
+    'month_.' . MonthEnum::getJune() => 'June',
+    'month_.' . MonthEnum::getJuly() => 'July',
+    'month_.' . MonthEnum::getAugust() => 'August',
+    'month_.' . MonthEnum::getSeptember() => 'September',
+    'month_.' . MonthEnum::getOctober() => 'October',
+    'month_.' . MonthEnum::getNovember() => 'November',
+    'month_.' . MonthEnum::getDecember() => 'December',
 
     //enter placeholder
     'enter' => 'enter',
+    'Logout' => 'Logout',
+    'Languages' => 'Languages',
+    'contacts' => 'contact us',
+    'our_team' => 'our team',
+    'our_teams' => 'our teams',
+    'ourteam' => 'our team',
+    'ourteam.edit' => 'Edit our team',
+    'ourteams' => 'our teams',
+    'message' => 'message',
+    'ourhistory.add' => 'Add our history',
+    'content' => 'content',
+    'date' => 'date',
+    'ourhistories' => 'our histories',
+    'deleted_successfully' => 'deleted successfully',
     'en' => 'en',
     'ar' => 'ar',
     'count' => 'count',

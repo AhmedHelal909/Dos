@@ -62,28 +62,39 @@
 </li>
 @endhavePermission
 
-@havePermission('read-sliders', 'web')
-<li class="has_sub">
-    <a href="javascript:void(0);" class="waves-effect"> <i class="fas fa-sliders-h"></i><span>
-                {{ __('site.sliders') }} </span> <span class="menu-arrow float-right"><i
-                class="mdi mdi-chevron-right"></i></span></a>
-    <ul class="list-unstyled" style="display: none;">
-        <li><a href="{{ route('dashboard.sliders.index') }}">{{ __('site.index') }}</a></li>
-        @havePermission('create-sliders', 'web')
-        <li><a href="{{ route('dashboard.sliders.create') }}">{{ __('site.sliders.add') }}</a></li>
-        @endhavePermission
-    </ul>
-</li>
-@endhavePermission
+
 @havePermission('read-settings', 'web')
 <li class="has_sub">
     <a href="javascript:void(0);" class="waves-effect"> <i class="ti-settings"></i><span> {{ __('site.settings') }}
             </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
     <ul class="list-unstyled" style="display: none;">
         <li><a href="{{ route('dashboard.settings.index') }}">{{ __('site.index') }}</a></li>
-        {{-- @havePermission('create-settings','web')
-    <li><a href="{{route('dashboard.settings.create')}}">{{__('site.settings.add')}}</a></li>
- @endhavePermission  --}}
+    </ul>
+</li>
+@endhavePermission
+
+@havePermission('read-ourteams', 'web')
+<li class="has_sub">
+    <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-users"></i> <span> {{ __('site.our_team') }}
+            </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+    <ul class="list-unstyled" style="display: none;">
+        <li><a href="{{ route('dashboard.ourteams.index') }}">{{ __('site.index') }}</a></li>
+        @havePermission('create-ourteams', 'web')
+        <li><a href="{{ route('dashboard.ourteams.create') }}">{{ __('site.add') }}</a></li>
+        @endhavePermission
+    </ul>
+</li>
+@endhavePermission
+
+@havePermission('read-ourhistories', 'web')
+<li class="has_sub">
+    <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-users"></i> <span> {{ __('site.ourhistories') }}
+            </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+    <ul class="list-unstyled" style="display: none;">
+        <li><a href="{{ route('dashboard.ourhistories.index') }}">{{ __('site.index') }}</a></li>
+        @havePermission('create-ourhistories', 'web')
+        <li><a href="{{ route('dashboard.ourhistories.create') }}">{{ __('site.add') }}</a></li>
+        @endhavePermission
     </ul>
 </li>
 @endhavePermission
@@ -94,9 +105,6 @@
             </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
     <ul class="list-unstyled" style="display: none;">
         <li><a href="{{ route('dashboard.contacts.index') }}">{{ __('site.index') }}</a></li>
-        {{-- @havePermission('create-settings','web')
-    <li><a href="{{route('dashboard.settings.create')}}">{{__('site.settings.add')}}</a></li>
- @endhavePermission  --}}
     </ul>
 </li>
 @endhavePermission

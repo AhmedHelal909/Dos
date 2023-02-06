@@ -25,6 +25,8 @@ class OrderDataTable extends DataTable
             })
             ->editColumn('customer_id', function ($query) {
                 return $query->customer->name;
+            })->editColumn('image', function ($query) {
+                return "<img src=".$query->image_path." width='50' height='50'>";
             })
             ->addIndexColumn()
             ->addColumn('action', function ($query) {
