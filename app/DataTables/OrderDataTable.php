@@ -3,6 +3,7 @@
 namespace App\DataTables;
 
 use App\Models\Order;
+use App\Models\Pharmacy;
 use App\Models\User;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
@@ -22,19 +23,25 @@ class OrderDataTable extends DataTable
             ->eloquent($query)
             ->editColumn('created_at', function ($query) {
                 return $query->created_at;
+            })->editColumn('customer_id', function ($query) {
+                return $query->customer->name ?? '-';
             })
-            ->editColumn('customer_id', function ($query) {
-                return $query->customer->name;
-            })->editColumn('image', function ($query) {
-                return "<img src=".$query->image_path." width='50' height='50'>";
+            ->editColumn('pahrmacy_ids', function ($query) {
+                $pharmacy_ids = Pharmacy::find($query->pharmacy_ids)->pluck('name')->implode(',');
+                return $pharmacy_ids ?? '-';
             })
+//            ->editColumn('image', function ($query) {
+//                return "<img src=".$query->image_path." width='50' height='50'>";
+//            })
             ->addIndexColumn()
             ->addColumn('action', function ($query) {
                 $row = $query;
+                $pharmacies = Pharmacy::get();
                 $module_name_singular = 'order';
                 $module_name_plural = 'orders';
-                return view('dashboard.includes.buttons.edit', compact('module_name_singular', 'module_name_plural', 'row'))
-                    . view('dashboard.includes.buttons.show', compact('module_name_singular', 'module_name_plural', 'row'));
+                return view('dashboard.company.orders.model',compact('module_name_singular', 'module_name_plural', 'row', 'pharmacies'));
+//                 view('dashboard.includes.buttons.edit', compact('module_name_singular', 'module_name_plural', 'row'));
+//                    . view('dashboard.includes.buttons.show', compact('module_name_singular', 'module_name_plural', 'row'));
             });
     }
 
@@ -85,9 +92,11 @@ class OrderDataTable extends DataTable
             Column::make('address')->title(__('site.address')),
             Column::make('medical_number')->title(__('site.medical_number')),
             Column::make('id_number')->title(__('site.id_number')),
+            Column::make('pahrmacy_ids')->title(__('site.pharmacies')),
             Column::make('customer_id')->title(__('site.customer_id')),
+            Column::make('status')->title(__('site.status')),
             Column::make('created_at')->title(__('site.created_at')),
-//            Column::make('action')->addClass('text-center')->orderable(false)->searchable(false)->title(__('site.action')),
+            Column::make('action')->addClass('text-center')->orderable(false)->searchable(false)->title(__('site.action')),
         ];
     }
 

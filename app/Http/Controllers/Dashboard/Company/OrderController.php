@@ -8,7 +8,7 @@ use App\Http\Controllers\Dashboard\BaseDatatableController;
 use App\Http\Requests\UserRequest;
 use App\Models\Order;
 use App\Models\User;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
 
 class OrderController extends BaseDatatableController
 {
@@ -34,7 +34,7 @@ class OrderController extends BaseDatatableController
 //
 //    }
 
-    public function update(UserRequest $request, Order $user)
+    public function update(Request $request, Order $order)
     {
 
         $request_data = $request->except(array_merge($this->uploadImages, ['_token', 'password', 'password_confirmation', 'roles']));
@@ -43,17 +43,17 @@ class OrderController extends BaseDatatableController
         }
 
 
-        $this->deleteImagesDynamic($user, $request);
+        $this->deleteImagesDynamic($order, $request);
         $request_data += $this->uploadImagesDynamic($request);
 
         if ($request->roles) {
-            $user->syncRoles($request->roles);
+            $order->syncRoles($request->roles);
         }
 
-        $user->update($request_data);
-        // $user->syncRoles($request->role_id);
+        $order->update($request_data);
+        // $order->syncRoles($request->role_id);
 
-     return $this->redirectTo('update',$user->id);
+     return $this->redirectTo('update',$order->id);
     }
 
     protected function append()
@@ -70,4 +70,23 @@ class OrderController extends BaseDatatableController
         session()->flash('success', __('site.deleted_successfully'));
         return redirect()->route('dashboard.' . $this->getClassNameFromModel() . '.index');
     } //end of destroy function
+
+    public function assign(Request $request)
+    {
+
+        $request->validate([
+            'pharmacy_id' => 'required|exists:pharmacies,id'
+        ]);
+        $row = $this->model->findOrFail($request->order_id);
+//        if (!$row){
+//            session()->flash('error', __('site.not_found'));
+//            return redirect()->route('dashboard.' . $this->getClassNameFromModel() . '.index');
+//        }
+
+        $row->status = 2;
+        $row->pharmacy_ids = $request->pharmacy_id;
+        $row->save();
+        session()->flash('success', __('site.assigned_successfully'));
+        return redirect()->route('dashboard.' . $this->getClassNameFromModel() . '.index');
+    }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Enum\CustomStatusEnum;
+use App\Enum\ImageEnum;
 use App\Enum\MonthEnum;
 use App\Enum\SettingEnum;
 use App\Enum\StatusEnum;
@@ -390,9 +391,14 @@ return [
     'our vision'=>'Our Vision',
     'our goals'=>'Our Goals',
     'Meet Our Team'=>'Our Team',
-
+    'already_assigned'=>'already assigned',
+    'not_found'=>'not found',
+    'assigned_successfully'=>'assigned successfully',
+    'assign_pharmacy'=>'assign pharmacy',
+    'colse'=>'colse',
+    'save_changes' => 'save changes',
+    'select_pharmacy' => 'select pharmacy',
     // settings
-    // setting
     'setting_.' . SettingEnum::getEmail() => 'Email',
     'setting_.' . SettingEnum::getFacebook() => 'Facebook',
     'setting_.' . SettingEnum::getTwitter() => 'Twitter',
@@ -417,6 +423,25 @@ return [
     'setting_.' . SettingEnum::getActiveGroup() => 'Active Group',
     'setting_.' . SettingEnum::getNewEvent() => 'New Event',
     'setting_.' . SettingEnum::getYoutubeLink() => 'Youtube Link',
+
+    // images
+    'images_.' . ImageEnum::getLogoAr() => 'Logo Ar',
+    'images_.' . ImageEnum::getLogoEn() => 'Logo En',
+    'images_.' . ImageEnum::getHowItWorksFirstAr() => 'How It Works First Ar',
+    'images_.' . ImageEnum::getHowItWorksFirstEn() => 'How It Works First En',
+    'images_.' . ImageEnum::getHowItWorksSecondAr() => 'How It Works Second Ar',
+    'images_.' . ImageEnum::getHowItWorksSecondEn() => 'How It Works Second En',
+    'images_.' . ImageEnum::getHowItWorksThirdAr() => 'How It Works Third Ar',
+    'images_.' . ImageEnum::getHowItWorksThirdEn() => 'How It Works Third En',
+    'images_.' . ImageEnum::getHowItWorksFourthAr() => 'How It Works Fourth Ar',
+    'images_.' . ImageEnum::getHowItWorksFourthEn() => 'How It Works Fourth En',
+    'images_.' . ImageEnum::getAboutUsFirstAr() => 'About Us First Ar',
+    'images_.' . ImageEnum::getAboutUsFirstEn() => 'About Us First En',
+    'images_.' . ImageEnum::getAboutUsSecondAr() => 'About Us Second Ar',
+    'images_.' . ImageEnum::getAboutUsSecondEn() => 'About Us Second En',
+    'images_.' . ImageEnum::getWhyChooseUsAr() => 'Why Choose Us Ar',
+    'images_.' . ImageEnum::getWhyChooseUsEn() => 'Why Choose Us En',
+    'images' => 'Images',
 
     // months
     'month_.' . MonthEnum::getJanuary() => 'January',
@@ -458,6 +483,13 @@ return [
     'inprogress' => 'inprogress',
     'delivered' => 'delivered date',
     'execute' => 'execute date',
+    'Notification' => 'Notification',
+    'view_all' => 'view all',
+    'image.edit' => 'Edit Image',
+    'v_website' => 'view website',
+    'sign_in' => 'sign in',
+    'sign_up' => 'sign up',
+    'Remember_Me' => 'Remember Me',
 
     //branch
     'branch' => 'branch',

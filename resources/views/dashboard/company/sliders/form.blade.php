@@ -2,7 +2,7 @@
     $dataColumns = [
         'title' => ['type' => 'text-translate', 'cssClass' => 'col-md-4', 'attr' => '', 'data' => ''],
         'link' => ['type' => 'text', 'cssClass' => 'col-md-4', 'attr' => '', 'data' => ''],
-       'description' => ['type' => 'textarea-translate', 'placeholder' => 'Description', 'cssClass' => 'col-md-6', 'attr' => '', 'data' => ''],
+        'description' => ['type' => 'textarea-translate', 'placeholder' => 'Description', 'cssClass' => 'col-md-6', 'attr' => '', 'data' => ''],
         'image' => ['type' => 'image-translate', 'cssClass' => 'col-md-6', 'attr' => '', 'data' => '','path' => 'sliders'],
     ];
 @endphp

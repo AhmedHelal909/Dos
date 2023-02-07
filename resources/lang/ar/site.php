@@ -1,6 +1,7 @@
 <?php
 
 use App\Enum\CustomStatusEnum;
+use App\Enum\ImageEnum;
 use App\Enum\MonthEnum;
 use App\Enum\SettingEnum;
 use App\Enum\StatusEnum;
@@ -62,6 +63,9 @@ return [
     'processing' => 'قيد التجهيز',
     'completed' => 'تم التسليم',
     'create pharmacy' => 'إنشاء صيدلية',
+    'sign_up' => 'تسجيل',
+    'sign_in' => 'تسجيل دخول',
+    'Remember_Me' => 'تذكرني',
 
     // products
     'products' => 'المنتجات',
@@ -208,6 +212,7 @@ return [
     'established_at' => 'تاريخ التاسيس',
     'website' => 'لينك الموقع الالكترونى',
     'choose_active' => 'أختر الحالة',
+    'v_website' => 'زيارة الموقع',
     'notACTIVE' => 'غير نشط',
     'ACTIVE' => 'نشط',
     'confirm_delete' => 'هل تريد الحذف بالفعل؟',
@@ -243,6 +248,9 @@ return [
     'message' => 'الرسالة',
     'Logout' => 'تسجيل الخروج',
     'Languages' => 'اللغات',
+    'Notification' => 'الاشعارات',
+    'view_all' => 'عرض الكل',
+    'image.edit' => 'تعديل الصورة',
     'contacts' => 'تواصل معنا',
     'our_team' => 'فريق العمل',
     'our_teams' => 'فريق العمل',
@@ -255,7 +263,13 @@ return [
     'date' => 'التاريخ',
     'ourhistories' => 'تاريخنا',
     'deleted_successfully' => 'تم الحذف بنجاح',
-
+    'already_assigned' => 'تم التعيين بالفعل',
+    'not_found' => 'غير موجود',
+    'assigned_successfully' => 'تم التعيين بنجاح',
+    'assign_pharmacy' => 'تعيين صيدلية',
+    'colse' => 'إغلاق',
+    'save_changes' => 'حفظ التغييرات',
+    'select_pharmacy' => 'أختر صيدلية',
     // month
     'month_.' . MonthEnum::getJanuary() => 'يناير',
     'month_.' . MonthEnum::getFebruary() => 'فبراير',
@@ -295,8 +309,26 @@ return [
     'setting_.' . SettingEnum::getActiveGroup() => 'عدد المجموعات النشطة',
     'setting_.' . SettingEnum::getNewEvent() => 'عدد الأحداث الجديدة',
     'setting_.' . SettingEnum::getYoutubeLink() => 'رابط اليوتيوب',
+    'images' => 'الصور',
 
 
+    // images
+    'images_.' . ImageEnum::getLogoAr() => 'لوجو العربية',
+    'images_.' . ImageEnum::getLogoEn() => 'لوجو الانجليزية',
+    'images_.' . ImageEnum::getHowItWorksFirstAr() => 'كيف يعمل "1" العربية',
+    'images_.' . ImageEnum::getHowItWorksFirstEn() => 'كيف يعمل "1" الانجليزية',
+    'images_.' . ImageEnum::getHowItWorksSecondAr() => 'كيف يعمل "2" العربية',
+    'images_.' . ImageEnum::getHowItWorksSecondEn() => 'كيف يعمل "2" الانجليزية',
+    'images_.' . ImageEnum::getHowItWorksThirdAr() => 'كيف يعمل "3" العربية',
+    'images_.' . ImageEnum::getHowItWorksThirdEn() => 'كيف يعمل "3" الانجليزية',
+    'images_.' . ImageEnum::getHowItWorksFourthAr() => 'كيف يعمل "4" العربية',
+    'images_.' . ImageEnum::getHowItWorksFourthEn() => 'كيف يعمل "4" الانجليزية',
+    'images_.' . ImageEnum::getAboutUsFirstAr() => 'من نحن "1" العربية',
+    'images_.' . ImageEnum::getAboutUsFirstEn() => 'من نحن "1" الانجليزية',
+    'images_.' . ImageEnum::getAboutUsSecondAr() => 'من نحن "2" العربية',
+    'images_.' . ImageEnum::getAboutUsSecondEn() => 'من نحن "2" الانجليزية',
+    'images_.' . ImageEnum::getWhyChooseUsAr() => 'لماذا تختارنا العربية',
+    'images_.' . ImageEnum::getWhyChooseUsEn() => 'لماذا تختارنا الانجليزية',
 
 
 

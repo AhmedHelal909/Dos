@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CustomerSeeder::class);
         $this->call(OrderSeeder::class);
         $this->call(SettingSeeder::class);
+        $this->call(ImageSeeder::class);
 
         Contact::create([
             'name' => 'Dose',

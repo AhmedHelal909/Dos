@@ -12,9 +12,10 @@
 </li>
 @endhavePermission
 
-@havePermission('read-sliders', 'web')
+@havePermission('read-images', 'web')
 <li class="has_sub">
     <a href="javascript:void(0);" class="waves-effect"><i class="fas fa-building"></i>
+        <!-- slider icon -->
         <span> {{ __('site.sliders') }} </span>
         <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
     <ul class="list-unstyled" style="display: none;">
@@ -22,6 +23,16 @@
         @havePermission('create-sliders', 'web')
         <li><a href="{{ route('dashboard.sliders.create') }}">{{ __('site.sliders.add') }}</a></li>
         @endhavePermission
+    </ul>
+</li>
+@endhavePermission
+
+@havePermission('read-images', 'web')
+<li class="has_sub">
+    <a href="javascript:void(0);" class="waves-effect"> <i class="ti-settings"></i><span> {{ __('site.images') }}
+            </span> <span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+    <ul class="list-unstyled" style="display: none;">
+        <li><a href="{{ route('dashboard.images.index') }}">{{ __('site.index') }}</a></li>
     </ul>
 </li>
 @endhavePermission

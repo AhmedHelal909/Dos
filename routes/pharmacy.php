@@ -19,6 +19,10 @@ Route::group(
 
             Route::prefix('pharmacy')->middleware(['auth:pharmacy'])->name('pharmacy.')->group(function () {
 
+                Route::get('/orders', function (){
+
+
+                })->name('orders');
 
 
 

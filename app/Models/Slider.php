@@ -12,7 +12,7 @@ class Slider extends Model
 
     protected $guarded = [];
 
-    public $translatable = ['title', 'description'];
+    public $translatable = ['title', 'description', 'image'];
     public function getStatusAttribute($value)
     {
         return $value == 1 ? __('site.ACTIVE') : __('site.notACTIVE');

@@ -54,14 +54,16 @@ Route::group(
             Route::resource('roles', RoleController::class)->except(['destroy']);
             Route::resource('vendors', \App\Http\Controllers\Dashboard\Company\VendorController::class)->except(['destroy']);
             Route::resource('settings', \App\Http\Controllers\Dashboard\Company\SettingController::class)->except(['destroy']);
+            Route::resource('images', \App\Http\Controllers\Dashboard\Company\ImageController::class)->except(['destroy']);
             Route::resource('contacts', \App\Http\Controllers\Dashboard\Company\ContactUController::class)->except(['destroy']);
-
+            // assign order to pharmacy
+            Route::post('orders/assign', [\App\Http\Controllers\Dashboard\Company\OrderController::class, 'assign'])->name('orders.assign');
 
             Route::get('test',function(){
-                $h = \App\Models\OurHistory::first();
-                $x = Carbon::parse($h->date)->month;
-                $y = MonthEnum::getList()[$x];
-                return $y;
+//                $h = \App\Models\OurHistory::first();
+//                $x = Carbon::parse($h->date)->month;
+//                $y = MonthEnum::getList()[$x];
+//                return $y;
 
             });
         });
