@@ -33,8 +33,10 @@ class OurTeamRequest extends FormRequest
     {
         return [
             'name' => 'required',
+            'name.ar' => 'required|regex:/^[\p{Arabic} ]+$/u',
             'description' => 'required',
-            'image'          => 'required|mimes:jpg,jpeg,png',
+//            'description.ar' => 'required|regex:/^[\p{Arabic} ]+$/u',
+            'image.*'          => 'required|mimes:jpg,jpeg,png',
             'facebook' => 'nullable',
             'twitter' => 'nullable',
             'google' => 'nullable',
@@ -45,8 +47,10 @@ class OurTeamRequest extends FormRequest
     {
         return [
             'name' => 'required',
+            'name.ar' => 'required|regex:/^[\p{Arabic} ]+$/u',
             'description' => 'required',
-            'image'          => 'nullable|mimes:jpg,jpeg,png',
+//            'description.ar' => 'required|regex:/^[\p{Arabic} ]+$/u',
+            'image.*'          => 'nullable|mimes:jpg,jpeg,png',
             'facebook' => 'nullable',
             'twitter' => 'nullable',
             'google' => 'nullable',

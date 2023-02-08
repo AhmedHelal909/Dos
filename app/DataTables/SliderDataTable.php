@@ -22,6 +22,10 @@ class SliderDataTable extends DataTable
             ->eloquent($query)
             ->editColumn('created_at', function ($query) {
                 return $query->created_at;
+            })->editColumn('title', function ($query) {
+                return $query->title;
+            })->editColumn('description', function ($query) {
+                return strip_tags($query->description);
             })
            ->addIndexColumn()
             ->addColumn('action', function ($query) {

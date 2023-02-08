@@ -46,7 +46,10 @@ return [
     'updated_successfuly' => 'تم التحديث بنجاح',
     'deleted_successfuly' => 'تم الحذف بنجاح',
 
-    'dashboard' => 'الرئيسية',
+    'dashboard' => 'لوحة التحكم',
+    'Revenue' => 'الإيرادات',
+    'latest_orders' => 'آخر الطلبات',
+    'no_data_found' => 'لايوجد بيانات',
 
     // general
     'name' => 'الإسم',
@@ -66,6 +69,10 @@ return [
     'sign_up' => 'تسجيل',
     'sign_in' => 'تسجيل دخول',
     'Remember_Me' => 'تذكرني',
+    'ourhistory' => 'تاريخنا',
+    'ourhistory.edit' => 'تعديل تاريخنا',
+    'contact' => 'اتصل بنا',
+    'contact.edit' => 'تعديل اتصل بنا',
 
     // products
     'products' => 'المنتجات',

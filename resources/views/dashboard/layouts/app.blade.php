@@ -45,6 +45,7 @@
             <div class="content">
 
                 @include('dashboard.layouts._navbar')
+
                 @yield('content')
 
             </div> <!-- content -->

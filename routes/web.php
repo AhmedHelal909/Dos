@@ -4,10 +4,8 @@ use App\Enum\MonthEnum;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Dashboard\Company\RoleController;
-use App\Http\Controllers\Dashboard\OrderController;
 use App\Http\Controllers\Dashboard\PharmacyController;
 use App\Http\Controllers\HomeController;
-use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -64,6 +62,14 @@ Route::group(
 //                $x = Carbon::parse($h->date)->month;
 //                $y = MonthEnum::getList()[$x];
 //                return $y;
+
+                // return guard name for user
+                $guard = Auth::guard();
+                $guardName = $guard->getName();
+                return $guardName;
+                if(Auth::guard('web')->check()){
+                    return 'web';
+                }
 
             });
         });

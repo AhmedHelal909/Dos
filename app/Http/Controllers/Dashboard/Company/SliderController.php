@@ -19,9 +19,16 @@ class SliderController extends BaseDatatableController
 
     public function store(SliderRequest $request)
     {
-        $request_data = $request->except(array_merge($this->uploadImages, ['_token', 'password', 'password_confirmation', 'roles']));
 
-        $request_data += $this->uploadImagesDynamic($request);
+//        dd($request->image['en']);
+        $request_data = $request->except(array_merge($this->uploadImages, ['_token', 'password', 'password_confirmation', 'roles']));
+         $en =$this->uploadImageSlider($request->image['ar'],'sliders');
+         $ar =$this->uploadImageSlider($request->image['en'],'sliders');
+        $request_data['image']= [
+        'en'=> $en,
+        'ar'=> $ar,
+    ];
+
         $newuser = $this->model->create($request_data);
         if ($request->roles) {
             $newuser->assignRole($request->roles);
@@ -38,8 +45,15 @@ class SliderController extends BaseDatatableController
             $request_data['password'] = bcrypt($request->password);
         }
 
+        if ($request->image != null){
         $this->deleteImagesDynamic($slider, $request);
-        $request_data += $this->uploadImagesDynamic($request);
+        $en =$this->uploadImageSlider($request->image['ar'],'sliders');
+        $ar =$this->uploadImageSlider($request->image['en'],'sliders');
+        $request_data['image']= [
+            'en'=> $en,
+            'ar'=> $ar,
+        ];
+        }
 
         if ($request->roles) {
             $slider->syncRoles($request->roles);

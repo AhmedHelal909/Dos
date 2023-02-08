@@ -82,11 +82,11 @@ class ContactUsDateTable extends DataTable
             Column::make('email')->addClass('text-center')->title(__('site.email')),
             Column::make('subject')->addClass('text-center')->title(__('site.subject')),
             Column::make('message')->addClass('text-center')->title(__('site.message')),
-            Column::computed('action')
-                ->exportable(false)
-                ->printable(false)
-                // ->width(60)
-                ->addClass('text-center')->title(__('site.action')),
+//            Column::computed('action')
+//                ->exportable(false)
+//                ->printable(false)
+//                // ->width(60)
+//                ->addClass('text-center')->title(__('site.action')),
         ];
     }
 

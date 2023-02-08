@@ -12,15 +12,13 @@ class BranchScope implements Scope
 
     public function apply(Builder $builder, Model $model)
     {
-      // if(auth()->user() != null){
-
-      //   if(!in_array(null ,auth()->user()->branch_id)){
-      //     $builder->where(function ($query) {
-      //         $query->whereIn('id', auth()->user()->branch_id);
-      //     });
-  
-      //   }
-      // }
+       if(auth('pharmacy')->user() != null){
+           $builder->where(function ($query) {
+               $ids = auth('pharmacy')->user()->id;
+                $ids = json_encode($ids);
+               $query->whereJsonContains('pharmacy_ids', $ids);
+           });
+       }
 
     }
 

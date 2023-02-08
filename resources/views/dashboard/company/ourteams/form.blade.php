@@ -6,7 +6,7 @@
         'twitter' => ['type' => 'text', 'cssClass' => 'col-md-4', 'attr' => '', 'data' => ''],
         'google' => ['type' => 'text', 'cssClass' => 'col-md-4', 'attr' => '', 'data' => ''],
         'website' => ['type' => 'text', 'cssClass' => 'col-md-4', 'attr' => '', 'data' => ''],
-        'image' => ['type' => 'image', 'cssClass' => 'col-md-6', 'attr' => '', 'data' => '','path' => 'ourteams'],
+        'image' => ['type' => 'image-translate', 'cssClass' => 'col-md-6', 'attr' => '', 'data' => '','path' => 'ourteams'],
     ];
 @endphp
 

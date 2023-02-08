@@ -12,5 +12,5 @@ class OurTeam extends Model
 
     protected $guarded = [];
 
-    public $translatable = ['name', 'description'];
+    public $translatable = ['name', 'description', 'image'];
 }

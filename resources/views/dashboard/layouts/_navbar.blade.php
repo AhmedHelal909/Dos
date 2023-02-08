@@ -94,7 +94,7 @@
                     <span class="d-none d-md-inline-block ml-1"> <i class="mdi mdi-chevron-down"></i> </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown">
-                    <a class="dropdown-item" href="{{ Auth::guard() == 'super' ? route('dashboard.users.edit', auth()->user()->id) : route('dashboard.pharmacies.edit', auth()->user()->id) }}"><i class="dripicons-user text-muted"></i> {{ __('Profile') }}</a>
+                    <a class="dropdown-item" href="{{ Auth::guard('web')->check() ? route('dashboard.users.edit', auth()->user()->id) : route('dashboard.pharmacies.edit', auth()->user()->id) }}"><i class="dripicons-user text-muted"></i> {{ __('site.Profile') }}</a>
                     <div class="dropdown-divider"></div>
                       @if(auth()->check())
                         <form id="logout-form" action="{{ route('logout','web') }}" method="POST" style="display: none;">
@@ -102,7 +102,7 @@
                             @csrf
                         </form>
                     <a class="dropdown-item" href="#" onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();"><i class="dripicons-exit text-muted"></i> {{ __('Logout') }}</a>
+                    document.getElementById('logout-form').submit();"><i class="dripicons-exit text-muted"></i> {{ __('site.Logout') }}</a>
                 </div>
             </li>
 

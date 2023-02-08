@@ -490,6 +490,13 @@ return [
     'sign_in' => 'sign in',
     'sign_up' => 'sign up',
     'Remember_Me' => 'Remember Me',
+    'ourhistory' => 'our history',
+    'ourhistory.edit' => 'Edit our history',
+    'contact' => 'contact us',
+    'contact.edit' => 'Edit contact us',
+    'Revenue' => 'Revenue',
+    'latest_orders' => 'latest orders',
+    'no_data_found' => 'no data found',
 
     //branch
     'branch' => 'branch',

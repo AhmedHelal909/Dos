@@ -34,42 +34,20 @@ public function run()
 //        'status'=>StatusEnum::getAppoved()
         ]);
 
-         $pharmacy = Pharmacy::create([
-        'name' => 'Pharmacy 2',
-        'email' => 'pharmacy2@eg.com',
-        'phone' => '01234567893',
-        'sec_phone' => '01234567892',
-        'password' => bcrypt('123123123'),
-//        'status'=>StatusEnum::getAppoved()
-        ]);
-
-         $pharmacy = Pharmacy::create([
-        'name' => 'Pharmacy 3',
-        'email' => 'pharmacy3@eg.com',
-        'phone' => '01234567895',
-        'sec_phone' => '01234567895',
-        'password' => bcrypt('123123123'),
-//        'status'=>StatusEnum::getAppoved()
-        ]);
+    $role = Role::create(['name' => 'super']);
+    $vendorRole = Role::create(['guard_name'=>'pharmacy','name' => 'pharmacy']);
 
 
+    $permissions = Permission::where('guard_name','web')->pluck('id','id');
+    $vendorPermissions = Permission::where('guard_name','pharmacy')->pluck('id','id');
 
 
-        $role = Role::create(['name' => 'super']);
-        $pharmacyRole = Role::create(['guard_name'=>'pharmacy','name' => 'pharmacy']);
-//        $deliveryRole = Role::create(['guard_name'=>'delivery','name' => 'delivery']);
+    $role->syncPermissions($permissions);
+    $vendorRole->syncPermissions($vendorPermissions);
 
-        $permissions = Permission::where('guard_name','web')->pluck('id','id');
-        $pharmacyPermissions = Permission::where('guard_name','pharmacy')->pluck('id','id');
-//        $deliveryPermissions = Permission::where('guard_name','delivery')->pluck('id','id');
 
-        $role->syncPermissions($permissions);
-        $pharmacyRole->syncPermissions($pharmacyPermissions);
-//        $deliveryRole->syncPermissions($deliveryPermissions);
-
-        $user->assignRole([$role->id]);
-        $pharmacy->assignRole([$pharmacyRole->id]);
-//        $delivery->assignRole([$deliveryRole->id]);
+    $user->assignRole([$role->id]);
+    $pharmacy->assignRole([$vendorRole->id]);
 
 
 }

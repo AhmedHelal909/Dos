@@ -27,8 +27,8 @@ class OrderDataTable extends DataTable
                 return $query->customer->name ?? '-';
             })
             ->editColumn('pahrmacy_ids', function ($query) {
-                $pharmacy_ids = Pharmacy::find($query->pharmacy_ids)->pluck('name')->implode(',');
-                return $pharmacy_ids ?? '-';
+                $pharmacy_ids = Pharmacy::find($query->pharmacy_ids);
+                return $pharmacy_ids[0]['name'] ?? '-';
             })
 //            ->editColumn('image', function ($query) {
 //                return "<img src=".$query->image_path." width='50' height='50'>";

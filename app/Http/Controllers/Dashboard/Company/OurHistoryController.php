@@ -18,9 +18,9 @@ class OurHistoryController extends BaseDatatableController
 
     protected $uploadImages = ['image'];
 
-    public function __construct(OurHistory $model, OurHistoryDataTable $ourHistoryDataTable)
+    public function __construct(OurHistory $model, OurHistoryDataTable $ourhistoryDataTable)
     {
-        parent::__construct($model, $ourHistoryDataTable);
+        parent::__construct($model, $ourhistoryDataTable);
     }
 
     public function store(OurHistoryRequest $request)
@@ -36,7 +36,7 @@ class OurHistoryController extends BaseDatatableController
 
     }
 
-    public function update(OurHistoryRequest $request, OurHistory $ourHistory)
+    public function update(OurHistoryRequest $request, OurHistory $ourhistory)
     {
 
         $request_data = $request->except(array_merge($this->uploadImages, ['_token', 'password', 'password_confirmation', 'roles']));
@@ -44,17 +44,17 @@ class OurHistoryController extends BaseDatatableController
             $request_data['password'] = bcrypt($request->password);
         }
 
-        $this->deleteImagesDynamic($ourHistory, $request);
+        $this->deleteImagesDynamic($ourhistory, $request);
         $request_data += $this->uploadImagesDynamic($request);
 
         if ($request->roles) {
-            $ourHistory->syncRoles($request->roles);
+            $ourhistory->syncRoles($request->roles);
         }
 
-        $ourHistory->update($request_data);
+        $ourhistory->update($request_data);
         // $user->syncRoles($request->role_id);
 
-        return $this->redirectTo('update',$ourHistory->id);
+        return $this->redirectTo('update',$ourhistory->id);
     }
 
     protected function append()

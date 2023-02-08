@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Scopes\BranchScope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -21,6 +22,12 @@ class Order extends Model
     }
 
     protected $appended=['image_path'];
+
+    protected static function booted()
+    {
+        static::addGlobalScope(new BranchScope);
+    }
+
 
     public function getImagePathAttribute()
     {
@@ -44,7 +51,7 @@ class Order extends Model
                 return __('site.completed');
                 break;
             default:
-                return 'pending';
+                return __('site.pending');
                 break;
         }
     }

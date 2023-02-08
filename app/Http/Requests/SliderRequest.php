@@ -31,16 +31,20 @@ class SliderRequest extends FormRequest
     {
         return [
             'title' => 'required',
+            'title.ar' => 'required|regex:/^[\p{Arabic} ]+$/u',
             'description' => 'required',
-            'image'          => 'required|mimes:jpg,jpeg,png|max:1000',
+//            'description.ar' => 'required|regex:/^[\p{Arabic} ]+$/u',
+            'image.*'          => 'required|mimes:jpg,jpeg,png|max:1000',
         ];
     }
     public function onUpdate()
     {
         return [
             'title' => 'required',
+            'title.ar' => 'required|regex:/^[\p{Arabic} ]+$/u',
             'description' => 'required',
-            'image'          => 'mimes:jpg,jpeg,png|max:1000',
+//            'description.ar' => 'required|regex:/^[\p{Arabic} ]+$/u',
+            'image.*'          => 'mimes:jpg,jpeg,png|max:1000',
         ];
     }
 }

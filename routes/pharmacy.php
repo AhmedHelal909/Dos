@@ -20,8 +20,9 @@ Route::group(
             Route::prefix('pharmacy')->middleware(['auth:pharmacy'])->name('pharmacy.')->group(function () {
 
                 Route::get('/orders', function (){
-
-
+                    // return guard name
+                    $or = \App\Models\Order::whereJsonContains('pharmacy_ids','1')->get();
+                    return $or;
                 })->name('orders');
 
 

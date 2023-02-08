@@ -17,7 +17,7 @@
                 <ul>
                     <li>
                         <a href="{{ route('Frontend.Frontend.home') }}" target="_blank" class="waves-effect">
-                            <i class="dripicons-home"></i>
+                            <i class="fas fa-eye"></i>
                             <span> {{__('site.v_website')}} <span class="badge badge-success badge-pill float-right"></span></span>
                         </a>
                         <a href="{{ route('home') }}" class="waves-effect">

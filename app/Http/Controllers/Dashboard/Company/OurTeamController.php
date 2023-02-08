@@ -15,16 +15,21 @@ class OurTeamController extends BaseDatatableController
 
     protected $uploadImages = ['image'];
 
-    public function __construct(OurTeam $model, OurTeamDataTable $ourTeamDataTable)
+    public function __construct(OurTeam $model, OurTeamDataTable $ourteamDataTable)
     {
-        parent::__construct($model, $ourTeamDataTable);
+        parent::__construct($model, $ourteamDataTable);
     }
 
     public function store(OurTeamRequest $request)
     {
         $request_data = $request->except(array_merge($this->uploadImages, ['_token', 'password', 'password_confirmation', 'roles']));
 
-        $request_data += $this->uploadImagesDynamic($request);
+        $en =$this->uploadImageSlider($request->image['ar'],'ourteams');
+        $ar =$this->uploadImageSlider($request->image['en'],'ourteams');
+        $request_data['image']= [
+            'en'=> $en,
+            'ar'=> $ar,
+        ];
         $newuser = $this->model->create($request_data);
         if ($request->roles) {
             $newuser->assignRole($request->roles);
@@ -33,7 +38,7 @@ class OurTeamController extends BaseDatatableController
 
     }
 
-    public function update(OurTeamRequest $request, OurTeam $ourTeam)
+    public function update(OurTeamRequest $request, OurTeam $ourteam)
     {
 
         $request_data = $request->except(array_merge($this->uploadImages, ['_token', 'password', 'password_confirmation', 'roles']));
@@ -41,17 +46,23 @@ class OurTeamController extends BaseDatatableController
             $request_data['password'] = bcrypt($request->password);
         }
 
-        $this->deleteImagesDynamic($ourTeam, $request);
-        $request_data += $this->uploadImagesDynamic($request);
-
+        if ($request->image != null){
+        $this->deleteImagesDynamic($ourteam, $request);
+        $en =$this->uploadImageSlider($request->image['ar'],'ourteams');
+        $ar =$this->uploadImageSlider($request->image['en'],'ourteams');
+        $request_data['image']= [
+            'en'=> $en,
+            'ar'=> $ar,
+        ];
+        }
         if ($request->roles) {
-            $ourTeam->syncRoles($request->roles);
+            $ourteam->syncRoles($request->roles);
         }
 
-        $ourTeam->update($request_data);
+        $ourteam->update($request_data);
         // $user->syncRoles($request->role_id);
 
-        return $this->redirectTo('update',$ourTeam->id);
+        return $this->redirectTo('update',$ourteam->id);
     }
 
     protected function append()
