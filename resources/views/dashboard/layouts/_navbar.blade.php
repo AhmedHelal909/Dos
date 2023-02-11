@@ -1,6 +1,8 @@
   <!-- Top Bar Start -->
   <div class="topbar">
-
+      @php
+          \Illuminate\Support\Facades\Config::set('auth.guards.customer.driver','session');
+      @endphp
     <div class="topbar-left	d-none d-lg-block">
         <div class="text-center">
             <a href="{{ route('home') }}" class="logo"><img src="{{asset('uploads/logo/logo-black.png')}}" height="22" alt="logo"></a>
@@ -96,9 +98,11 @@
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown">
                     <a class="dropdown-item" href="{{ Auth::guard('web')->check() ? route('dashboard.users.edit', auth()->user()->id) : route('dashboard.pharmacies.edit', auth()->user()->id) }}"><i class="dripicons-user text-muted"></i> {{ __('site.Profile') }}</a>
                     <div class="dropdown-divider"></div>
-                      @if(auth()->check())
+                      @if(auth()->guard('web')->check())
                         <form id="logout-form" action="{{ route('logout','web') }}" method="POST" style="display: none;">
-                      @endif
+                            @elseif(auth()->guard('pharmacy')->check())
+                                <form id="logout-form" action="{{ route('logout','pharmacy') }}" method="POST" style="display: none;">
+                                    @endif
                             @csrf
                         </form>
                     <a class="dropdown-item" href="#" onclick="event.preventDefault();

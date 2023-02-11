@@ -11,10 +11,10 @@
 
 
     <!-- ==== Document Meta ==== -->
-    <meta name="author" content="ThemeLooks">
-    <meta name="description" content="Multipurpose Social Network HTML5 Template">
+    <meta name="author" content="Dose">
+    <meta name="description" content="Dose">
     <meta name="keywords"
-        content="social media, social network, forum, shop, bootstrap, html5, css3, template, responsive, retina ready">
+        content="Dose">
 
    @include('frontend.layouts._style')
 </head>
@@ -24,7 +24,7 @@
     <div class="wrapper">
 
         @include('frontend.layouts._navbar')
-        
+
         @yield('content')
 
         @include('frontend.layouts._footer')

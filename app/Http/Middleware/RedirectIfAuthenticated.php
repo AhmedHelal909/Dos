@@ -26,6 +26,9 @@ class RedirectIfAuthenticated
             if ($guard == "pharmacy" && Auth::guard($guard)->check()) {
                 return redirect('/pharmacy/home');
             }
+            if ($guard == "customer" && Auth::guard($guard)->check()) {
+                return redirect('/');
+            }
 
             if (Auth::guard($guard)->check()) {
                 return redirect(RouteServiceProvider::HOME);

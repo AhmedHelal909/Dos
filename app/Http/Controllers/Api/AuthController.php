@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use PHPOpenSourceSaver\JWTAuth\Exceptions\JWTException;
 use PHPOpenSourceSaver\JWTAuth\Facades\JWTAuth;
+use Yajra\DataTables\Utilities\Config;
 
 class AuthController extends Controller
 {
@@ -38,6 +39,7 @@ class AuthController extends Controller
     }
     public function login(Request $request)
     {
+        \Illuminate\Support\Facades\Config::set('auth.guards.customer.driver', 'jwt');
         $validator = Validator::make($request->all(), [
             'email_phone' => 'required|string',
             'password' => 'required',

@@ -6,11 +6,11 @@
                     <!-- Text Block Start -->
                     <div class="text--block pb--10">
                         <div class="title">
-                            <h2 class="h2 fw--600">Why Choose Us?</h2>
+                            <h2 class="h2 fw--600">{{ __('site.Why Choose Us?') }}</h2>
                         </div>
 
                         <div class="content fs--14">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. make a type specimen book.</p>
+                            <p>{{ __('site.Lorem Ipsum is simply dummy text of the printing and typesetting industry. make a type specimen book.') }}</p>
                         </div>
                     </div>
                     <!-- Text Block End -->
@@ -35,7 +35,7 @@
                             </div>
                             <!-- Feature Block End -->
                         </div>
-                        
+
                         <div class="col-md-6 pb--10">
                             <!-- Feature Block Start -->
                             <div class="feature--block mb--6 clearfix">
@@ -55,7 +55,7 @@
                             </div>
                             <!-- Feature Block End -->
                         </div>
-                        
+
                         <div class="col-md-6 pb--10">
                             <!-- Feature Block Start -->
                             <div class="feature--block mb--6 clearfix">
@@ -101,7 +101,7 @@
                 <div class="col-md-6 pb--60">
                     <!-- Video Popup Start -->
                     <div class="video--popup style--1" data-overlay="0.3">
-                        <img src="img/why-choose-us-img/video-poster-1.jpg" alt="">
+                        <img src="{{ asset('frontEnd/img/why-choose-us-img/video-poster-1.jpg') }}" alt="">
 
                         <a href="https://www.youtube.com/watch?v=YE7VzlLtp-4" class="btn-link" data-trigger="video_popup">
                             <span><i class="fa fa-play"></i></span>

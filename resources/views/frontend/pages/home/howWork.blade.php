@@ -16,19 +16,19 @@
             <div class="col-md-7 pb--40">
                 <div class="row gutter--15 AdjustRow" data-scroll-reveal="group">
                     <div class="col-xs-4 pb--15">
-                        <img src="{{ asset('frontEnd/img/how1.jpg') }}" alt="">
+                        <img src="{{ app()->getLocale() == 'en' ? get_image(__('site.images_.' . \App\Enum\ImageEnum::getHowItWorksFirstEn())) : get_image(__('site.images_.' . \App\Enum\ImageEnum::getHowItWorksFirstAr()))}}" alt="">
                     </div>
 
                     <div class="col-xs-4 pb--15">
-                        <img src="{{ asset('frontEnd/img/how2.jpg') }}" alt="">
+                        <img src="{{ app()->getLocale() == 'en' ? get_image(__('site.images_.' . \App\Enum\ImageEnum::getHowItWorksSecondEn())) : get_image(__('site.images_.' . \App\Enum\ImageEnum::getHowItWorksSecondAr()))}}" alt="">
                     </div>
 
                     <div class="col-xs-4 pb--15">
-                        <img src="{{ asset('frontEnd/img/how3.jpg') }}" alt="">
+                        <img src="{{ app()->getLocale() == 'en' ? get_image(__('site.images_.' . \App\Enum\ImageEnum::getHowItWorksThirdEn())) : get_image(__('site.images_.' . \App\Enum\ImageEnum::getHowItWorksThirdAr()))}}" alt="">
                     </div>
 
                     <div class="col-xs-12">
-                        <img src="{{ asset('frontEnd/img/how4.jpg') }}" alt="">
+                        <img src="{{ app()->getLocale() == 'en' ? get_image(__('site.images_.' . \App\Enum\ImageEnum::getHowItWorksFourthEn())) : get_image(__('site.images_.' . \App\Enum\ImageEnum::getHowItWorksFourthAr()))}}" alt="">
                     </div>
                 </div>
             </div>

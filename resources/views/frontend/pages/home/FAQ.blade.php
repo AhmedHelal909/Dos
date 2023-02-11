@@ -7,7 +7,7 @@
                         <!-- Download Block Start -->
                         <div class="download--block" data-scroll-reveal="group">
                             <div class="img">
-                                <img src="{{ asset('frontEnd/img/goals.jpg') }}" alt="">
+                                <img src="{{ app()->getLocale() == 'en' ? get_image(__('site.images_.' . \App\Enum\ImageEnum::getWhyChooseUsEn())) : get_image(__('site.images_.' . \App\Enum\ImageEnum::getWhyChooseUsAr()))}}" alt="Download">
                             </div>
 
 
@@ -34,9 +34,9 @@
 
                                 <div id="faqItem01" class="content collapse">
                                     <div class="content--inner">
-                                        <p>There are many variations of passages of Lorem Ipsum available, but the
-                                            majority have suffered alteration in some form, by injected humour, or
-                                            randomised words even slightly believable.</p>
+                                        <p>
+                                            {{ app()->getLocale() == 'en' ? get_setting(__('site.setting_.' . \App\Enum\SettingEnum::getOurMission())) : get_setting(__('site.setting_.' . \App\Enum\SettingEnum::getOurMissionAr()))}}
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -55,9 +55,9 @@
 
                                 <div id="faqItem02" class="content collapse">
                                     <div class="content--inner">
-                                        <p>There are many variations of passages of Lorem Ipsum available, but the
-                                            majority have suffered alteration in some form, by injected humour, or
-                                            randomised words even slightly believable.</p>
+                                        <p>
+                                            {{ app()->getLocale() == 'en' ? get_setting(__('site.setting_.' . \App\Enum\SettingEnum::getOurVision())) : get_setting(__('site.setting_.' . \App\Enum\SettingEnum::getOurVisionAr()))}}
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -76,9 +76,9 @@
 
                                 <div id="faqItem03" class="content collapse">
                                     <div class="content--inner">
-                                        <p>There are many variations of passages of Lorem Ipsum available, but the
-                                            majority have suffered alteration in some form, by injected humour, or
-                                            randomised words even slightly believable.</p>
+                                        <p>
+                                            {{ app()->getLocale() == 'en' ? get_setting(__('site.setting_.' . \App\Enum\SettingEnum::getOurGoals())) : get_setting(__('site.setting_.' . \App\Enum\SettingEnum::getOurGoalsAr()))}}
+                                        </p>
                                     </div>
                                 </div>
                             </div>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\BranchController;
 use App\Http\Controllers\Api\ProfileController;
+use App\Http\Controllers\FrontEnd\FrontEndController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,10 +27,10 @@ Route::namespace('Api')->middleware(['lang'])->group(function(){
     Route::post('resetPassword',[AuthController::class,'resetPassword']);
 
 
+
     /*-------------logined------------------------------*/
     Route::prefix('customer')->middleware(['auth_customer'])->group(function() {
         Route::get('profiles', [ProfileController::class,'index']);
         Route::post('updateProfile',[ProfileController::class,'updateProfile']);
-
 });
 });

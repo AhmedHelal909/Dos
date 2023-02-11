@@ -4,9 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Config;
 
-class changeGuardType
+class CustomerWebMiddleware
 {
     /**
      * Handle an incoming request.
@@ -17,17 +16,10 @@ class changeGuardType
      */
     public function handle(Request $request, Closure $next)
     {
-
-
-
-
-
-
-
-
-        Config::set('auth.guards.customer.driver','session');
-        Config::set('auth.guards.employee.driver','session');
-
-        return $next($request);
+        if (auth()->guard('customer_web')->check()) {
+            return $next($request);
+        }
+        return redirect()->route('Frontend.login');
     }
+
 }

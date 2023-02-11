@@ -1,6 +1,5 @@
     <!-- Header Section Start -->
     <header class="header--section style--1">
-            
         <!-- Header Navbar Start -->
         <div class="header--navbar navbar bg-black" data-trigger="sticky">
             <div class="container">
@@ -15,8 +14,8 @@
                     <!-- Header Navbar Logo Start -->
                     <div class="header--navbar-logo navbar-brand">
                         <a href="{{route('Frontend.Frontend.home')}}">
-                            <img src="{{asset('frontEnd/img/logo-white.png')}}" class="normal" alt="">
-                            <img src="{{asset('frontEnd/img/logo-black.png')}}" class="sticky" alt="">
+                            <img src="{{ app()->getLocale() == 'en' ? get_image(__('site.images_.' . \App\Enum\ImageEnum::getLogoEn())) : get_image(__('site.images_.' . \App\Enum\ImageEnum::getLogoAr()))}}" class="normal" alt="">
+                            <img src="{{ app()->getLocale() == 'en' ? get_image(__('site.images_.' . \App\Enum\ImageEnum::getLogoEn())) : get_image(__('site.images_.' . \App\Enum\ImageEnum::getLogoAr()))}}" class="sticky" alt="">
                         </a>
                     </div>
                     <!-- Header Navbar Logo End -->
@@ -25,7 +24,6 @@
                 <div id="headerNav" class="navbar-collapse collapse float--right">
                     <!-- Header Nav Links Start -->
                     <ul class="header--nav-links style--1 nav ff--primary">
-                        
                         <li class="{{Route::is('Frontend.Frontend.home') ? 'active' : ''}}">
                             <a href="{{route('Frontend.Frontend.home')}}">
                                 <span>{{__('site.Home')}}</span>
@@ -34,19 +32,22 @@
                         <li class="{{Route::is('Frontend.Frontend.about') ? 'active' : ''}}">
                             <a href="{{route('Frontend.Frontend.about')}}"><span>{{__('site.about')}}</span></a>
                         </li>
-                        
-                        
+
                         <li class="{{Route::is('Frontend.Frontend.contact') ? 'active' : ''}}"><a href="{{route('Frontend.Frontend.contact')}}"><span>{{__('site.contact us')}}</span></a></li>
                         <li class="dropdown">
-                            <a href="{{route('Frontend.Frontend.account')}}" class="dropdown-toggle" data-toggle="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <span>{{__('site.account')}}</span>
                                 <i class="fa fa-caret-down"></i>
                             </a>
 
                             <ul class="dropdown-menu">
-                                <li><a href="{{route('Frontend.Frontend.account')}}"><span>{{__('site.my_account')}}</span></a></li>
+                                @if(auth()->guard('customer_web')->user())
+                                <li><a href="{{route('Frontend.account')}}"><span>{{__('site.my_account')}}</span></a></li>
+                                <li><a href="{{route('Frontend.logout')}}"><span>{{__('site.logout')}}</span></a></li>
+                                @else
                                 <li><a href="{{route('Frontend.login')}}"><span>{{__('site.login')}}</span></a></li>
                                 <li><a href="{{route('Frontend.register')}}"><span>{{__('site.Register')}}</span></a></li>
+                                @endif
 
                             </ul>
                         </li>

@@ -1,4 +1,3 @@
-     
 
         <!-- Most Popular Groups Section Start -->
         <section class="section bg-lighter pt--70 pb--70">
@@ -18,114 +17,33 @@
                             data-owl-autoplay="true"
                             data-owl-responsive='{"0": {"items": "1"}, "481": {"items": "1"}, "768": {"items": "2"}, "992": {"items": "4"}}'>
                             <!-- Box Item Start -->
+                            @foreach($our_team as $team)
                             <div class="box--item text-center">
                                 <a href="#" class="img" data-overlay="0.1">
-                                    <img src="{{ asset('frontEnd/img/team1.jpg') }}" alt="">
+                                    <img src="{{ asset('uploads/ourteams/'. $team->image) }}" alt="{{ $team->name }}">
                                 </a>
 
                                 <div class="info">
 
 
                                     <div class="title">
-                                        <h2 class="h6"><a href="#">Travel ( Just Take A Tour )</a></h2>
+                                        <h2 class="h6"><a href="#">{{ $team->name }}</a></h2>
                                     </div>
 
                                     <div class="desc text-darker">
-                                        <p>Lorem Ipsum is simply dummy text of the printing &amp; typesetting.</p>
+                                        <p>{{ strip_tags($team->description) }}</p>
                                     </div>
                                     <div class="social">
                                         <ul class="nav">
-                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                                            <li><a href="{{ $team->facebook }}"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="{{ $team->twitter }}"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a href="{{ $team->google }}"><i class="fa fa-google-plus"></i></a></li>
+                                            <li><a href="{{ $team->website }}"><i class="fa fa-rss"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Box Item End -->
-
-                            <!-- Box Item Start -->
-                            <div class="box--item text-center">
-                                <a href="#" class="img" data-overlay="0.1">
-                                    <img src="{{ asset('frontEnd/img/team2.jpg') }}" alt="">
-                                </a>
-
-                                <div class="info">
-
-                                    <div class="title">
-                                        <h2 class="h6"><a href="#">Music Lover ( Injoy Yourself )</a></h2>
-                                    </div>
-
-                                    <div class="desc text-darker">
-                                        <p>Lorem Ipsum is simply dummy text of the printing &amp; typesetting.</p>
-                                    </div>
-                                    <div class="social">
-                                        <ul class="nav">
-                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Box Item End -->
-
-                            <!-- Box Item Start -->
-                            <div class="box--item text-center">
-                                <a href="#" class="img" data-overlay="0.1">
-                                    <img src="{{ asset('frontEnd/img/team3.jpg') }}" alt="">
-                                </a>
-
-                                <div class="info">
-                                    <div class="title">
-                                        <h2 class="h6"><a href="#">Photography ( Memories )</a></h2>
-                                    </div>
-
-
-                                    <div class="desc text-darker">
-                                        <p>Lorem Ipsum is simply dummy text of the printing &amp; typesetting.</p>
-                                    </div>
-
-                                    <div class="social">
-                                        <ul class="nav">
-                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Box Item End -->
-
-                            <!-- Box Item Start -->
-                            <div class="box--item text-center">
-                                <a href="#" class="img" data-overlay="0.1">
-                                    <img src="{{ asset('frontEnd/img/team4.jpg') }}" alt="">
-                                </a>
-
-                                <div class="info">
-
-                                    <div class="title">
-                                        <h2 class="h6"><a href="#">Tasty Food Recipes</a></h2>
-                                    </div>
-
-                                    <div class="desc text-darker">
-                                        <p>Lorem Ipsum is simply dummy text of the printing &amp; typesetting.</p>
-                                    </div>
-
-                                    <div class="social">
-                                        <ul class="nav">
-                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                             <!-- Box Item End -->
 
                         </div>

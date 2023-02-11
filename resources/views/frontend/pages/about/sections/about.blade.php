@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row row--md-vc">
                 <div class="col-md-6 pb--40">
-                    <img src="{{asset('frontEnd/img/about-img/01.jpg')}}" alt="">
+                    <img src="{{ app()->getLocale() == 'en' ? get_image(__('site.images_.' . \App\Enum\ImageEnum::getAboutUsSecondEn())) : get_image(__('site.images_.' . \App\Enum\ImageEnum::getAboutUsSecondAr()))}}" alt="About Us">
                 </div>
 
                 <div class="col-md-6 pb--40">
@@ -12,11 +12,9 @@
                         <div class="content fs--14">
                             <h3>{{__('site.about')}}</h3>
 
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum eius, nesciunt animi qui quaerat aliquam corrupti beatae, veniam excepturi maxime quas rerum asperiores dolore aliquid atque? Aperiam neque ex fugiat?</p>
-
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum eius, nesciunt animi qui quaerat aliquam corrupti beatae, veniam excepturi maxime quas rerum asperiores dolore aliquid atque? Aperiam neque ex fugiat?</p>
-
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam dicta fugiat voluptatibus aperiam officia quis asperiores animi error distinctio corporis, doloribus aliquam libero maiores modi dolores perspiciatis beatae nulla, eaque?</p>
+                            <p>
+                                {{ app()->getLocale() == 'en' ? get_setting(__('site.setting_.' . \App\Enum\SettingEnum::getAboutUs())) : get_setting(__('site.setting_.' . \App\Enum\SettingEnum::getAboutUsAr()))}}
+                            </p>
                         </div>
                     </div>
                     <!-- Text Block End -->

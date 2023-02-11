@@ -6,6 +6,7 @@ use App\CustomClass\response;
 use Closure;
 
 use Exception;
+use Illuminate\Support\Facades\Config;
 use PHPOpenSourceSaver\JWTAuth\Exceptions\JWTException;
 use PHPOpenSourceSaver\JWTAuth\Exceptions\TokenExpiredException;
 use PHPOpenSourceSaver\JWTAuth\Exceptions\TokenInvalidException;
@@ -13,26 +14,39 @@ use PHPOpenSourceSaver\JWTAuth\Facades\JWTAuth;
 
 class authenticateCustomer
 {
-    
+
     public function handle($request, Closure $next)
     {
-        try {
-            if (! $customer = auth('customer')->user()) {
-                return response::falid('user_not_found', 404);
+
+        // if route has prefix customer
+//        dd($request->segment(2));
+        if($request->segment(2) == 'frontend'){
+            Config::set('auth.guards.customer.driver','session');
+            Config::set('auth.guards.employee.driver','session');
+            if($customer = auth('customer')->user()){
+                return $next($request);
             }
+        }else {
 
-        } catch (TokenExpiredException $e) {
+            try {
+                if (! $customer = auth('customer')->user()) {
+                    return response::falid('user_not_found', 404);
+                }
 
-            return response::falid('token_expired', 400);
+            } catch (TokenExpiredException $e) {
 
-        } catch (TokenInvalidException $e) {
+                return response::falid('token_expired', 400);
 
-            return response::falid('token_invalid', 400);
-            
-        } catch (JWTException $e) {
+            } catch (TokenInvalidException $e) {
 
-            return response::falid('token_absent', 400);
+                return response::falid('token_invalid', 400);
+
+            } catch (JWTException $e) {
+
+                return response::falid('token_absent', 400);
+            }
         }
         return $next($request);
+
     }
 }

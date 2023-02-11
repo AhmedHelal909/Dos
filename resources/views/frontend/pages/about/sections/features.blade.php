@@ -6,11 +6,13 @@
                 <!-- Feature Item Start -->
                 <div class="feature--item bg-default text-center">
                     <div class="title">
-                        <h2 class="h1 ff--default text-primary"><span data-trigger="counterup">530</span>k+</h2>
+                        <h2 class="h1 ff--default text-primary"><span data-trigger="counterup">
+                                {{ get_setting(__('site.setting_.' . \App\Enum\SettingEnum::getStores())) }}
+                            </span>k+</h2>
                     </div>
 
                     <div class="sub-title">
-                        <h3 class="h2 fs--16">Stories / Topics Created</h3>
+                        <h3 class="h2 fs--16">{{ __('site.Stories / Topics Created') }}</h3>
                     </div>
 
                     <div class="desc">
@@ -24,11 +26,13 @@
                 <!-- Feature Item Start -->
                 <div class="feature--item bg-default text-center">
                     <div class="title">
-                        <h2 class="h1 ff--default text-primary"><span data-trigger="counterup">30</span>k+</h2>
+                        <h2 class="h1 ff--default text-primary"><span data-trigger="counterup">
+                                {{ get_setting(__('site.setting_.' . \App\Enum\SettingEnum::getMemberOnline())) }}
+                            </span>k+</h2>
                     </div>
 
                     <div class="sub-title">
-                        <h3 class="h2 fs--16">Member Online Right Now</h3>
+                        <h3 class="h2 fs--16">{{ __('site.Member Online Right Now') }}</h3>
                     </div>
 
                     <div class="desc">
@@ -42,11 +46,13 @@
                 <!-- Feature Item Start -->
                 <div class="feature--item bg-default text-center">
                     <div class="title">
-                        <h2 class="h1 ff--default text-primary"><span data-trigger="counterup">1.5</span>k+</h2>
+                        <h2 class="h1 ff--default text-primary"><span data-trigger="counterup">
+                                {{ get_setting(__('site.setting_.' . \App\Enum\SettingEnum::getActiveGroup())) }}
+                            </span>k+</h2>
                     </div>
 
                     <div class="sub-title">
-                        <h3 class="h2 fs--16">Active Group / Meeting Room</h3>
+                        <h3 class="h2 fs--16">{{ __('site.Active Group / Meeting Room') }}</h3>
                     </div>
 
                     <div class="desc">
@@ -60,11 +66,13 @@
                 <!-- Feature Item Start -->
                 <div class="feature--item bg-default text-center">
                     <div class="title">
-                        <h2 class="h1 ff--default text-primary"><span data-trigger="counterup">03</span>k+</h2>
+                        <h2 class="h1 ff--default text-primary"><span data-trigger="counterup">
+                                {{ get_setting(__('site.setting_.' . \App\Enum\SettingEnum::getNewEvent())) }}
+                            </span>k+</h2>
                     </div>
 
                     <div class="sub-title">
-                        <h3 class="h2 fs--16">New Event In Every Week</h3>
+                        <h3 class="h2 fs--16">{{ __('site.New Event In Every Week') }}</h3>
                     </div>
 
                     <div class="desc">

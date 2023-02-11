@@ -11,16 +11,10 @@
                             </div>
 
                             <div class="content">
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                    make a type specimen book.
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                    make a type specimen book.
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                    make a type specimen book.
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                    make a type specimen book.
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                    make a type specimen book.</p>
+                                <p>
+
+                                    {{ app()->getLocale() == 'en' ? get_setting(__('site.setting_.' . \App\Enum\SettingEnum::getAboutUs())) : get_setting(__('site.setting_.' . \App\Enum\SettingEnum::getAboutUsAr()))}}
+                                </p>
                             </div>
                         </div>
                         <!-- Text Block End -->
@@ -31,7 +25,7 @@
                     <div class="col-md-6 pb--60">
                         <!-- Video Popup Start -->
                         <div class="video--popup style--1" data-overlay="0.3">
-                            <img src="{{ asset('frontEnd/img/vision.jpg') }}" alt="">
+                            <img src="{{ app()->getLocale() == 'en' ? get_image(__('site.images_.' . \App\Enum\ImageEnum::getAboutUsFirstEn())) : get_image(__('site.images_.' . \App\Enum\ImageEnum::getAboutUsFirstAr()))}}" alt="Video Popup">
 
 
                         </div>
